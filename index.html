@@ -936,29 +936,55 @@ document.getElementById("video-player").addEventListener("click", function () {
     <div class="section-divider max-w-4xl mx-auto"></div>
 
     <!-- Updates / Newsletter Section -->
-    <section id="updates" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');">
-        <style>#updates::before { background-image: var(--bg-image); }</style>
-        <div class="max-w-2xl mx-auto text-center">
-            <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
-                <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-4 tracking-wider">UPDATES</h2>
-                <p class="text-gray-400 tracking-[0.2em] uppercase text-sm mb-8">Join the Journey</p>
+    <section id="updates" class="section-bg-animated relative py-40 px-6" style="--bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');">
+    
+    <style>
+        #updates::before { 
+            background-image: var(--bg-image);
+        }
+    </style>
 
-                <p class="text-gray-300 mb-8 drop-shadow-lg">
-                    Subscribe to receive exclusive updates, behind-the-scenes content, and early access to new releases.
+    <!-- overlay mais profundo -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+
+    <div class="relative max-w-2xl mx-auto text-center">
+
+        <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+
+            <h2 class="font-cinzel text-4xl md:text-6xl font-bold mb-6 tracking-[0.2em]">
+                UPDATES
+            </h2>
+
+            <p class="text-gray-400 tracking-[0.3em] uppercase text-xs mb-10">
+                Acompanhe esta jornada
+            </p>
+
+            <p class="text-gray-300 mb-10 leading-relaxed text-lg">
+                Receba conteúdos exclusivos, bastidores e acesso antecipado aos próximos capítulos.
+            </p>
+
+            <!-- CTA -->
+            <div class="space-y-4">
+
+                <a href="mailto:filhosdeceres@gmail.com" 
+                   class="inline-block border border-white/30 px-8 py-3 text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-300">
+                    Enviar mensagem
+                </a>
+
+                <p class="text-gray-500 text-xs tracking-wider">
+                    ou escreva para
                 </p>
 
-                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
-                    <input type="email" 
-                           placeholder="Enter your email" 
-                           class="flex-1 bg-black/40 backdrop-blur-sm border border-white/20 px-4 py-3 text-sm tracking-wider focus:outline-none focus:border-white/50 transition-colors placeholder-gray-600">
-                    <button type="submit" 
-                            class="border border-white/30 px-6 py-3 text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-300">
-                        Subscribe
-                    </button>
-                </form>
+                <p class="text-white/80 text-sm tracking-wider">
+                    filhosdeceres@gmail.com
+                </p>
+
             </div>
+
         </div>
-    </section>
+
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="relative py-12 px-6 border-t border-white/10 bg-black/80">
