@@ -1,0 +1,106 @@
+<!-- ESTILO (CSS) -->
+<style>
+    /* RESET */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* BODY */
+    body {
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* FUNDO COM IMAGEM */
+    .background {
+        position: fixed;
+        inset: 0;
+        background-image: url('./fundo1.png');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+    }
+
+    /* OVERLAY ESCURO */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .container {
+        max-width: 500px;
+        width: 90%;
+        padding: 40px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 12px;
+    }
+
+    /* TÍTULO */
+    h1 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    /* PARÁGRAFOS */
+    p {
+        font-size: 16px;
+        color: #cccccc;
+        margin-bottom: 15px;
+    }
+
+    /* BOTÃO */
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: #ffffff;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #dddddd;
+    }
+
+    /* RODAPÉ */
+    .footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #888888;
+    }
+</style>
+<!-- FUNDO -->
+<div class="background"></div>
+
+<!-- CAMADA ESCURA -->
+<div class="overlay"></div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div class="container">
+
+    <h1>OBRIGADO</h1>
+
+    <p>Sua reserva foi enviada com sucesso.</p>
+
+    <p>Você será avisado quando o livro estiver disponível.</p>
+
+    <a href="./index.html" class="btn">Voltar para o site</a>
+
+    <div class="footer">
+        © 2026 MÃE CERES - FILHOS DA REVOLUÇÃO. TODOS DIREITOS RESERVADOS.
+    </div>
+
+</div>
