@@ -833,12 +833,12 @@
             </div>
 
             <!-- Vimeo -->
-            <iframe
-                src="https://player.vimeo.com/video/1182199047?title=0&byline=0&portrait=0"
-                class="iframe absolute inset-0 w-full h-full hidden"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen>
+            <iframe id="player-iframe"
+            src="https://player.vimeo.com/video/1182199047?title=0&byline=0&portrait=0"
+            class="iframe absolute inset-0 w-full h-full hidden"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
             </iframe>
 
             <!-- Texto -->
@@ -846,12 +846,15 @@
                 <h3 class="font-cinzel text-2xl tracking-wider">OFICIAL TRAILER</h3>
                 <p class="text-sm text-gray-400 mt-2">Bem-vindo a Ceres</p>
             </div>
-
-
-
-            
-
         </div>
+    </div>
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+
+    <button onclick="trocarVideo('1182199047', this)" class="video-btn active">Trailer 1</button>
+    <button onclick="trocarVideo('1186612733', this)" class="video-btn">Trailer 2</button>
+    <button onclick="trocarVideo('1188426520', this)" class="video-btn">Reel 1</button>
+    <button onclick="trocarVideo('1186613395', this)" class="video-btn">Manifesto</button>
+
     </div>
 </section>
 
@@ -1137,5 +1140,25 @@ document.getElementById("video-player").addEventListener("click", function () {
             });
         }
     </script>
+
+
+    <script>
+function trocarVideo(videoId, el) {
+
+    const iframe = document.getElementById("player-iframe");
+    const thumb = document.querySelector("#video-player .thumb");
+
+    // troca vídeo
+    iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+
+    // mostra player
+    iframe.classList.remove("hidden");
+    thumb.style.display = "none";
+
+    // troca botão ativo
+    document.querySelectorAll(".video-btn").forEach(btn => btn.classList.remove("active"));
+    el.classList.add("active");
+}
+</script>
 </body>
 </html>
