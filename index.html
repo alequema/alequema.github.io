@@ -1005,18 +1005,16 @@ document.getElementById("video-player").addEventListener("click", function () {
             <!-- CTA -->
             <div class="space-y-4">
 
-                <a href="mailto:filhosdeceres@gmail.com" 
-                   class="inline-block border border-white/30 px-8 py-3 text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-300">
-                    Enviar mensagem
+               <a href="#" id="email-link"
+               class="inline-block border border-white/30 px-8 py-3 text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-black transition-all duration-300">
+               Enviar mensagem
                 </a>
 
                 <p class="text-gray-500 text-xs tracking-wider">
                     ou escreva para
                 </p>
 
-                <p class="text-white/80 text-sm tracking-wider">
-                    filhosdeceres@gmail.com
-                </p>
+               <p id="email-text" class="text-white/80 text-sm tracking-wider"></p>
 
             </div>
 
@@ -1236,6 +1234,14 @@ function trocarVideo(videoId, el) {
     document.querySelectorAll(".video-btn").forEach(btn => btn.classList.remove("active"));
     el.classList.add("active");
 }
+</script>
+    <script>
+    const user = "filhosdeceres";
+    const domain = "gmail.com";
+    const email = user + "@" + domain;
+
+    document.getElementById("email-link").href = "mailto:" + email;
+    document.getElementById("email-text").innerText = email;
 </script>
 </body>
 </html>
