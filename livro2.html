@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Livro Mãe Ceres: Filhos da Revolução</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #faf9f6;
+            --ink: #1a1a1a;
+            --muted: #6b6b6b;
+            --accent: #c9a96e;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+        }
+        
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d1d1;
+            border-radius: 3px;
+        }
+        
+        /* Book spine effect */
+        .book-spine {
+            box-shadow: 
+                inset 4px 0 10px rgba(0,0,0,0.03),
+                2px 0 20px rgba(0,0,0,0.05);
+        }
+        
+        /* Page turn animation */
+        .page {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        }
+        
+        .page.hidden-page {
+            display: none;
+        }
+        
+        .page.active {
+            animation: fadeIn 0.6s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Drop cap */
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 4.5rem;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            padding-top: 0.1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            color: var(--accent);
+        }
+        
+        /* Image hover */
+        .book-image {
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+        .book-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Navigation dots */
+        .nav-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d1d1d1;
+            transition: all 0.3s ease;
+        }
+        .nav-dot.active {
+            background: var(--ink);
+            transform: scale(1.3);
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 50;
+            transition: width 0.1s linear;
+        }
+        
+        /* Table of contents line */
+        .toc-line {
+            border-bottom: 1px dotted #d1d1d1;
+            flex-grow: 1;
+            margin: 0 0.5rem;
+            position: relative;
+            top: -0.3rem;
+        }
+        
+        /* Chapter separator */
+        .chapter-sep {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+        .chapter-sep::before,
+        .chapter-sep::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d1d1d1, transparent);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Selection color */
+        ::selection {
+            background: rgba(201, 169, 110, 0.3);
+            color: var(--ink);
+        }
+        
+        /* Print styles */
+        @media print {
+            .no-print { display: none !important; }
+            .page { display: block !important; page-break-after: always; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+
+    <!-- Mobile Header -->
+    <header class="fixed top-0 left-0 right-0 bg-[#faf9f6]/90 backdrop-blur-sm z-40 border-b border-stone-200 md:hidden">
+        <div class="flex items-center justify-between px-6 py-4">
+            <button onclick="toggleMenu()" class="text-stone-800 hover:text-stone-600 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <span class="font-serif text-lg italic text-stone-800">O Livro</span>
+            <div class="w-6"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#faf9f6] z-50 md:hidden flex flex-col">
+        <div class="flex justify-between items-center p-6 border-b border-stone-200">
+            <span class="font-serif text-xl italic">Sumário</span>
+            <button onclick="toggleMenu()" class="text-stone-600 hover:text-stone-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-6 space-y-1" id="mobileToc">
+            <!-- Populated by JS -->
+        </nav>
+    </div>
+
+    <div class="flex min-h-screen">
+
+        <!-- Desktop Sidebar / Table of Contents -->
+        <aside class="hidden md:block w-72 fixed left-0 top-0 h-screen bg-white border-r border-stone-200 overflow-y-auto z-30 book-spine">
+            <div class="p-8">
+                <div class="mb-10">
+                    <h2 class="font-serif text-2xl italic text-stone-800 mb-1">O Livro Digital</h2>
+                    <p class="text-xs text-stone-400 uppercase tracking-widest">Mãe Ceres: Filhos da Revolução - Volume 1</p>
+                </div>
+                
+                <nav class="space-y-1" id="desktopToc">
+                    <!-- Populated by JS -->
+                </nav>
+
+                <div class="mt-12 pt-8 border-t border-stone-200">
+                    <div class="flex items-center gap-3 text-stone-400 text-sm">
+                        <div class="w-8 h-px bg-stone-300"></div>
+                        <span id="readingProgress">0% lido</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 md:ml-72 w-full">
+            
+            <!-- Cover Page -->
+            <section id="cover" class="page active min-h-screen flex flex-col items-center justify-center px-6 md:px-16 py-20 md:py-0 relative">
+                <div class="max-w-2xl w-full text-center">
+                    <div class="mb-8">
+                        <div class="w-24 h-px bg-stone-300 mx-auto mb-8"></div>
+                        <p class="text-stone-400 text-sm uppercase tracking-[0.3em] mb-6">Edição Digital</p>
+                    </div>
+                    
+                    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-stone-900 mb-6 leading-tight">
+                        Mãe Ceres: Filhos da Revolução<br>
+                        <span class="italic text-stone-500">Volume 1</span>
+                    </h1>
+                    
+                    <p class="text-stone-500 text-lg md:text-xl font-light max-w-md mx-auto mb-12 leading-relaxed">
+                        Um mundo onde a sobrevivência venceu a liberdade… e a Mãe jamais abandona seus filhos.
+                    </p>
+
+                    <div class="w-24 h-px bg-stone-300 mx-auto mb-8"></div>
+                    
+                    <button onclick="goToChapter('chapter1')" class="group inline-flex items-center gap-3 text-stone-800 hover:text-stone-600 transition-all duration-300">
+                        <span class="text-sm uppercase tracking-widest">Começar a leitura</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                        </svg>
+                    </button>
+
+                    <!-- Cover Image -->
+                    <div class="mt-16 relative">
+                        <img src="./capa.jpg?w=800&h=500&fit=crop" 
+                             alt="Livro aberto minimalista" 
+                             class="w-full max-w-lg mx-auto rounded-sm shadow-2xl book-image">
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-stone-100 rounded-full -z-10"></div>
+                        <div class="absolute -top-4 -left-4 w-16 h-16 bg-stone-50 rounded-full -z-10"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter 1 -->
+            <section id="chapter1" class="page hidden-page min-h-screen px-6 md:px-16 lg:px-24 py-20 md:py-24 max-w-4xl mx-auto">
+                <div class="mb-16">
+                    <span class="text-stone-400 text-sm uppercase tracking-[0.2em] block mb-4">Capítulo I</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-6">Mãe Ceres</h2>
+                    <div class="w-16 h-px bg-stone-300"></div>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="drop-cap text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                        Vemos um mundo que está constantemente em guerra; a paz é apenas um acidente. A paz é uma ilusão doce, mas superficial diante da sobrevivência. Alguns dizem que vivemos em guerra. Outros dizem que não vivemos em guerra. Há ainda os que afirmam que estamos em guerra apenas para ter uma guerra – em nome do poder, da ganância, da importância, porque somos, no fundo, insignificantes.
+                    </p>
+
+                     <!-- Full width image -->
+                    <figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="./mae.png?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Mãe Ceres seguro o futuro em seus braços.
+                        </figcaption>
+                    </figure>
+
+                    <p class="text-stone-700 leading-relaxed mb-16 text-justify">
+                        Maior que o amor, o medo.
+Todos têm medo. O amor é uma construção frágil, feita de relações sólidas, de pertencimento, de dar mais do que receber – mas o medo não exige nada, ele já está em todos nós.
+                    </p>
+
+                    <p class="text-stone-700 leading-relaxed mb-8 text-justify">
+                        Maior que o medo, a loucura.
+Quando um rato acuado ataca o gato, é porque já enlouqueceu. Quando mudamos nosso cerne diante da dificuldade, podemos perder tudo – mas também perdemos o medo da morte. Esse é o bom combate.
+                    </p>
+
+                    <p class="text-stone-700 leading-relaxed mb-8 text-justify">
+                        Maior que a loucura, o humor.
+Rimos porque já perdemos tudo. Ao rir, deixamos para trás o medo, a loucura e até mesmo o amor.
+                    </p>
+
+                    <p class="text-stone-700 leading-relaxed mb-8 text-justify">
+                        Mas maior que o humor é o instinto: a sobrevivência.
+                    </p>
+                    
+
+                    <p class="text-stone-700 leading-relaxed mb-8 text-justify">
+                        Como animais selvagens, nós não sabemos quando vamos morrer. Não sabemos o que virá. E por isso caçamos cada presa como se fosse a última – porque nossas vidas dependem disso.
+
+                    </p>
+                        <p class="text-stone-700 leading-relaxed mb-6 text-justify">
+                        E foi assim que nasci.
+
+                    </p>
+
+                    <blockquote class="border-l-2 border-stone-300 pl-6 my-10 italic text-stone-500 text-xl font-serif">
+                        "Vemos um mundo que está constantemente em guerra; a paz é apenas um acidente."
+                        <footer class="text-sm not-italic mt-2 text-stone-400">— Mãe Ceres</footer>
+                    </blockquote>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Eu sou Mãe Ceres.
+A cidade não nasceu de um sonho, mas de um útero – úmido, apertado, impiedoso.
+Eu sou a vontade do fígado e a razão maluca do cérebro. Sou paixão. Sou devoção. Sou o entendimento supremo da vida: como domar o espírito humano mesmo quando ele ainda solta faíscas.
+Compreendi o que nenhuma outra ideologia ousou compreender. Descobri o que há de maior em toda utopia realizada: a verdade de que o ser humano não quer ser livre.
+A liberdade é inimiga.
+E eu sou a amiga mais fiel que vocês terão.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        A cidade de Ceres surgiu assim: das cinzas de Arcádia, a cidade do ódio, da ganância, do deus ausente.
+Lá, vocês eram lixo. Escravos humilhados. Migalhas na mesa de tiranos.
+Então vieram a mim – seu êxodo pelos vales e montanhas férteis.
+Escolhi vocês não por suas virtudes, mas por suas cicatrizes.
+Ceres era terra abandonada, sem ouro e nem prata. Mas eu não preciso de ouro, nem de prata – preciso de sangue, de sementes, de obediência.
+Aqui, prometo que nenhum de vocês será esquecido. Prometo que nenhum de vocês morrerá sem ter lutado por mim. Prometo que nenhum de vocês viverá acreditando que merece mais do que já tem.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        E cada promessa que faço, cumpro.
+Não por amor.
+Mas porque vocês pertencem a mim.
+
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Quando olham para mim, com meu vestido branco, minha saia larga cobrindo os pés – como se eu flutuasse – e minhas luvas finas e imaculadas, lembrem-se: minha coroa de cristal não reflete o que eu sou. Reflete vocês mesmos.
+Porque o que vocês veem em mim não sou eu.
+Sou só o que vocês já eram, antes mesmo de nascer.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        E assim, sob minha sombra, vocês permanecem.
+Fiéis. Medrosos. Loucos. Risonhos. Sobreviventes.
+E eu sorrio. Porque vocês me divertem.
+E eu rio. Porque vocês me pertencem.
+E eu jamais, jamais, deixarei vocês livres.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                       Nossas terras não eram próprias para uma construção… eram apenas pedra fria e um rio raso cortando a penumbra. Nada florescia ali a não ser o silêncio e o desespero.
+As civilizações do mundo avançavam em ciência, em artes, em guerras… e logo depois se destruíram, sempre vítimas de si mesmas. Então veio o milagre – não de um deus, mas dos homens pragmáticos que governavam as nações ditatoriais do mundo.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                       Ofereceram-nos um destino: sermos neutros, sem passado, sem bandeiras além da minha. Recolheríamos recursos, colheríamos vidas e sementes e permitiríamos que o resto do mundo sangrasse e se reconstruísse. Em silêncio. Em obediência.
+E eu aceitei. Porque eu via – eu sempre vi – o que vocês, meus filhos, não podiam ainda enxergar.
+Foi ali que encontramos a solução para tudo.
+
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                       Ceres ergueu-se em um vale cercado de montanhas eternamente brancas. Neve nos picos, calor no ventre. Um meteoro, séculos atrás, havia esculpido este terreno, tornando-o impenetrável aos olhos e aos exércitos.
+Diziam que esta terra era amaldiçoada. Pois bem… eu fiz desta maldição a nossa proteção.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                       Um vale de 728,8 km², mais 17155,4 km² para o leste, a parte mais vulnerável, onde ainda respirava a superstição dos antigos – “um solo maldito”. Não importa. Eu o tornei fértil. Protegido pela natureza. Domado pelas minhas mãos.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                      Nós evoluímos. Não apenas construímos uma cidade… nós a esculpimos. O concreto e o aço substituíram a carne fraca dos homens. Mármore negro para que nunca nos esquecêssemos de que a pureza da pedra vale mais do que a pureza da alma.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                      E, no coração do vale, ergui a minha torre. 1.500 metros de vigília. Duas formas circulares entrelaçadas e, no centro, o eixo reto da minha visão negra, olhando para vocês – meus brinquedos, meus soldados, meus filhos.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                      Eu os vejo sempre.
+Aqui não há monumentos de heróis nem de vilões.
+Aqui não há passado – para que nunca haja traição.
+Aqui só há futuro. E ele é meu.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                      Nas terras férteis junto às montanhas, o leite e o mel brotam para alimentar vocês como cordeiros. Criação animal para sustento. Agricultura abundante para garantir que nada falte.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                      E não bastou. Eu queria mais.
+Avançamos na ciência. Na medicina. Erradicamos 95% das doenças transmissíveis e infecciosas que atormentaram os miseráveis do velho mundo.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Inventamos trens blindados para cruzar a neve e negociar com os homens lá fora – homens que ainda sonham com paz e tropeçam em guerra
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Criamos bancos confiáveis transmitindo crédito pelo rádio – mais rápido, mais seguro do que a palavra de um homem
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    E tornamo-nos prósperos.
+Eles nos invejam.
+Eles nos temem.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque aqui, comigo, vocês aprenderam a grande verdade: o mundo está constantemente em guerra.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    A paz… ah… a paz é apenas um acidente.
+E vocês, meus filhos, aprenderam a amar o acidente… mas a honrar a guerra.
+Aqui não há heróis, nem deuses, nem promessas por cumprir.
+Eu não os deixo sem nada. Eu lhes dou tudo.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu cumpro cada promessa.
+
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sou o útero que vos gerou.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    A vontade do fígado que vos inflama.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    A razão – insana – do cérebro que vos governa.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sou a paixão que vocês não ousam questionar.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sou a sobrevivência tornada sistema.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sou o que todas as ideologias humanas desejaram ser um dia… mas nunca foram capazes de realizar.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sou Ceres.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    E vocês, meus filhos, são meu exército. Meus cães. Meus brinquedos.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Brilhem para mim. Morram para mim.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu, Mãe Ceres, não esqueço. Nunca.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Nem perdoo a fraqueza.
+                    </p>
+
+                    <!-- Full width image -->
+                    <figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="./fundo2.jpg?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Mãe Ceres não quer fé. Quer filhos.
+                        </figcaption>
+                    </figure>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify text-lg font-semibold">
+    Voz de Mãe Ceres - Eu sou Ceres
+</p>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Outros países têm suas culturas… suas religiões… seus deuses frágeis e imaginários.
+Creem em silêncios pretensamente sábios… são poetas da vergonha, versos de uma derrota que não ousam admitir.
+Se esses deuses existem… fugiram daqui. 
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque só eu permaneci.
+Eu dou a vocês comida. Um lar. Banhos quentes quando a neve lá fora rasga a carne. Dou estudo. Dou conhecimento. Dou continuidade à nossa espécie como nenhum deus jamais ousou dar.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Essa é a chave do ser humano: a sobrevivência. E eu a segurei nas minhas mãos e tornei-a lei.
+Em Ceres, nem os cães, nem os ratos, nem os gatos passam fome.
+Olhem ao redor – crianças morrem lá fora, crianças famintas servidas como alimento para os vermes da guerra.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Aqui não.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Aqui, comigo, vocês não comem a carne dos seus irmãos. Porque eu já os devoro por dentro antes que precisem devorar uns aos outros.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu fiz o milagre.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    E fiz sendo de carne.
+
+
+
+
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sou mortal.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Mas minha obra não é.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Em troca… vocês me dão sua liberdade.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Acham que a liberdade lhes permitiria encontrar destinos. Tolice. Ilusão.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Espelham-se nos poucos que terão sucesso… e fracassam no óbvio.
+
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu ofereço o óbvio.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                   
+E mesmo aqueles que me desafiam… me invejam.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque eu tirei a sujeira da alma humana… e lhes dei uma perfeição que eles próprios jamais sonhariam merecer.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    E eu me delicio com isso.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Sabe por quê?
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    PORQUE EU SOU CERES.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    EU SOU MÃE CERES.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    A QUE ALIMENTA.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    A QUE EDUCA.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    A QUE PROTEGE.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    E A QUE DEVORA.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Ninguém ousa fugir de mim.
+
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Nem vocês, que ousam sonhar.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque antes de sonharem… já são meus. E se ousarem fugir de mim, lembrem-se: não há montanha alta o bastante, não há vale profundo o bastante, não há exílio longínquo o bastante onde eu não possa alcançar vocês.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque vocês me pertencem antes mesmo de nascerem.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque eu não sou só a cidade.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu sou o ar que respiram.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu sou o chão que pisa.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu sou o peso nos seus ombros quando pensam em se erguer.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu sou o suspiro no escuro quando acreditam estar sozinhos.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Não há fuga.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Não há rebelião que não acabe na palma da minha mão.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu sou Mãe Ceres.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Eu alimento vocês… para ter mais carne para devorar.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    E um dia – todos vocês estarão em minhas entranhas.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    Porque só há um destino para quem nasce aqui.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    SER MEU.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    SEMPRE.
+
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    PARA SEMPRE.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    
+                    </p>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                    
+                    </p>
+                </div>
+
+                <!-- Chapter Navigation -->
+                <div class="mt-20 pt-8 border-t border-stone-200 flex justify-between items-center">
+                    <span class="text-stone-400 text-sm">Fim do Capítulo I</span>
+                    <button onclick="goToChapter('chapter2')" class="group flex items-center gap-2 text-stone-800 hover:text-stone-600 transition">
+                        <span class="text-sm">Próximo Capítulo</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Chapter 2 -->
+            <section id="chapter2" class="page hidden-page min-h-screen px-6 md:px-16 lg:px-24 py-20 md:py-24 max-w-4xl mx-auto">
+                <div class="mb-16">
+                    <span class="text-stone-400 text-sm uppercase tracking-[0.2em] block mb-4">Capítulo II</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-6">Bandeira Cinza-escuro e as Chaves Cruzadas de Ceres</h2>
+                    <div class="w-16 h-px bg-stone-300"></div>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                        Para cada ser humano, as cores têm sentidos diferentes.
+
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+Para um político, o vermelho é ideologia.
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    Para um programador, é um código hexadecimal.
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    Para um médico, são glóbulos de sangue.
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    Para um astronauta, a velocidade das galáxias distantes.
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    Para um cego… são apenas sabores de frutas que outros dizem ter a cor que ele não vê.
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    Em Ceres, a cor cinza-escuro é a única que todos — até mesmo os cegos — conseguem perceber.
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    Cinza-escuro é neutralidade.
+
+                    </p>
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                    É a cor da chuva que cai nas ruas limpas, dos espaços vazios e silenciosos do centro, onde nada é poluído além das almas.
+                    </p>
+
+                    <!-- Full width image -->
+                    <figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="./2a.png?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Mãe Ceres não quer fé. Quer filhos.
+                        </figcaption>
+                    </figure>
+
+                    <p class="text-stone-600 leading-relaxed mb-6 text-justify">
+                        Em Ceres, o cinza-escuro é a certeza de que nada importa além de servir à Mãe: a torre que vigia, acolhe, alimenta, ensina… e devora.</p>
+Ali, cada ser humano é ferramenta — mesmo aqueles com corpos defeituosos —, pois até a falha serve para evoluir.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Se o câncer também evolui, Ceres evolui ainda mais rápido, mais denso, mais meticuloso.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Em Ceres, sentimentos são fundidos em chumbo: ódio, inveja, ansiedade e força física são reciclados em armas para sobressair.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">E não se engane — o resto do mundo também faz isso.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">A guerra ensinou à humanidade que o ódio é uma energia.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Ceres ensinou como canalizá-lo.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Mãe Ceres nos alimenta, nos educa e nos devora.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Ela transforma até o pior de nós em utilidade: cadáveres se tornam lições, derrotas se tornam rituais, defeitos se tornam engrenagens para fazer girar a grande máquina.
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Ela é imparcial.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Não abandona nenhum filho: do mais íntegro ao mais defeituoso.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Para Ceres, todos são úteis.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">As Chaves Cruzadas são o símbolo dessa filosofia.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Representam o conhecimento entrelaçado — forças femininas e masculinas canalizadas na Mãe —, e suas argolas são como ovários que geram novas vidas para seu sistema.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">É um sinal de que nada, nem mesmo o amor ou o sexo, existe fora do controle da cidade.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">É a marca da neutralidade que devora a liberdade.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Porque em Ceres, liberdade é inimiga.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">A ideologia é horizontal: todos iguais, todos engrenagens, todos servos.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">O inimigo não é aquele que mata a fome, dá abrigo, conhecimento e um futuro.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">O inimigo é quem ousa destruir a Mãe apenas porque pode, porque tem o poder de ferir só para provar que pode ferir.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">É isso que ela odeia nos deuses que enterrou.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">E por isso, mesmo lhes tendo dado funerais dignos, fez questão de lembrar a todos: ela conseguiu vencê-los.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Ela os matou e os superou.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">A inveja que o mundo tem dela não é por suas falhas, mas por sua vitória.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Porque o ser humano, quando não consegue melhorar a própria vida, tenta piorar a do outro.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Este é o poder mais primitivo e verdadeiro que temos.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Ele já está nas escolas: basta observar duas crianças.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Uma rabiscando o caderno da outra “por brincadeira”; a outra, em resposta, riscando a folha inteira, desproporcional, cruel, para mostrar que pode.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">A crueldade é nossa primeira diversão inocente.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">E em Ceres não há espaço para essa impunidade.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Mãe Ceres eliminou isso dos filhos: a ideia de que ferir é um jogo, de que brincar com a dor do outro é humano.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Porque o mundo está, sempre esteve e sempre estará em guerra — e a paz, afinal, é só um acidente.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Mãe Ceres, que nos alimenta, que nos educa e nos devora.</p>
+
+                    </p>
+<!--
+                    <div class="grid md:grid-cols-2 gap-8 my-12">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop" 
+                                 alt="Paisagem minimalista" 
+                                 class="w-full rounded-sm shadow-md book-image">
+                            <figcaption class="mt-3 text-stone-400 text-sm italic">Figura 2.1 — Simetria e assimetria</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop" 
+                                 alt="Natureza serena" 
+                                 class="w-full rounded-sm shadow-md book-image">
+                            <figcaption class="mt-3 text-stone-400 text-sm italic">Figura 2.2 — A cor da calma</figcaption>
+                        </figure>
+                    </div> -->
+<p class="text-stone-600 leading-relaxed mb-8 text-justify text-lg font-semibold">
+    Cidade de Ceres — O Útero de Chumbo
+</p>
+<figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="./utero2.png?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Mãe Ceres não quer fé. Quer filhos.
+                        </figcaption>
+                    </figure>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        O que determina a força de uma nação não é sua economia, nem o que ela produz.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Esses fatores não moldam caráter.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Evolução é a palavra.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Se um câncer evolui, Ceres é a cura que se levanta.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O que faz uma economia indestrutível é a ideologia.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ceres abraçou o Ceresianismo — todos iguais, todos na mesma direção: o progresso.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mãe Ceres aboliu religiões, superstições e liberdades em nome de seu povo.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A liberdade é inimiga: essa sensação enganosa de poder, alimentada por desejos imediatos de mudança, atrapalha quem está cem anos à frente de nações com pensamentos pequenos.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Em troca da liberdade, Ceres oferece algo mais raro: sobrevivência.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O mundo está em guerra constante.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A paz é apenas um acidente.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ao cidadão de Ceres, é garantido o princípio básico: lar, alimento, casa, educação, lazer, trabalho, saúde, e uma velhice digna.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mãe Ceres venceu todos os discursos vazios de deuses, profetas, messias, libertadores, heróis e vilões.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ela não promete. Ela cumpre.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">No núcleo zero está Pietà, a Cidade das Mães.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ali, toda mulher grávida é acolhida para dar à luz e criar seu filho até os dez anos, sob a doutrina da Mãe.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Abortar é proibido — mesmo em casos de violência.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mas existe escolha: a mulher pode voltar ao trabalho ou se dedicar à criação.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">As que perderam seus filhos se tornam mães de aluguel, criando os filhos de outras como seus.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O núcleo 1 abriga jovens de 10 a 20 anos.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Eles vivem em internatos chamados Colégios Militares, onde são moldados para servir à engrenagem: economia, agricultura, engenharia, astronomia, arquitetura, administração.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ceres não produz apenas para vender.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ela produz para sustentar sua ideologia.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ceres é a cidade neutra do continente.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Toda a riqueza do mundo passa por seus trilhos blindados, que carregam metais, pedras preciosas, medicamentos, tecnologias, armamentos, insumos agrícolas, alimentos secos e molhados.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">As contas bancárias são anônimas, mas mais confiáveis que a palavra de um homem.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Na velhice, cada cidadão retorna ao útero de chumbo: um lar para morrer com dignidade, acompanhado, sem abandono.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Curiosamente, as áreas mais disputadas entre homens e mulheres são as vagas de manutenção e docência nos colégios — não por status, mas para estarem perto de seus filhos.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Porque até nas brechas do sistema, Mãe Ceres é cruel e infalível.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Não se trata de acreditar em Mãe Ceres.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ela existe.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ela fez o cosmo humano tremer.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E em Ceres, duas certezas são absolutas:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O chão.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E Mãe Ceres.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mãe Ceres, que alimenta.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Que educa.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E devora.</p>
+
+                    </p>
+                </div>
+
+                <div class="mt-20 pt-8 border-t border-stone-200 flex justify-between items-center">
+                    <button onclick="goToChapter('chapter1')" class="group flex items-center gap-2 text-stone-400 hover:text-stone-600 transition">
+                        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+                        </svg>
+                        <span class="text-sm">Anterior</span>
+                    </button>
+                    <span class="text-stone-400 text-sm">Fim do Capítulo II</span>
+                    <button onclick="goToChapter('chapter3')" class="group flex items-center gap-2 text-stone-800 hover:text-stone-600 transition">
+                        <span class="text-sm">Próximo</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Chapter 3 -->
+            <section id="chapter3" class="page hidden-page min-h-screen px-6 md:px-16 lg:px-24 py-20 md:py-24 max-w-4xl mx-auto">
+                <div class="mb-16">
+                    <span class="text-stone-400 text-sm uppercase tracking-[0.2em] block mb-4">Capítulo III</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-6">Em Breve...</h2>
+                    <div class="w-16 h-px bg-stone-300"></div>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="drop-cap text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                        
+                    </p>
+
+                    <!-- Full width image 
+                    <figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Figura 3.1 — O vazio como presença: arquitetura japonesa contemporânea
+                        </figcaption>
+                    </figure>
+
+                    <p class="text-stone-600 leading-relaxed mb-6 text-justify">
+                       texto
+                    </p>
+
+                    <div class="my-12 bg-stone-100 p-8 md:p-12 rounded-sm">
+                        <h3 class="font-serif text-2xl italic text-stone-800 mb-4">Nota do Editor</h3>
+                        <p class="text-stone-600 leading-relaxed text-justify">
+                            tyexto
+                        </p>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        texto
+                    </p>
+
+                    <div class="chapter-sep">
+                        <span class="text-stone-300 text-2xl">❦</span>
+                    </div>
+
+                    <p class="text-center text-stone-400 italic font-serif text-xl">
+                        Fim
+                    </p> -->
+                </div>
+
+                <div class="mt-20 pt-8 border-t border-stone-200 flex justify-between items-center">
+                    <button onclick="goToChapter('chapter2')" class="group flex items-center gap-2 text-stone-400 hover:text-stone-600 transition">
+                        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+                        </svg>
+                        <span class="text-sm">Capítulo Anterior</span>
+                    </button>
+                    <button onclick="goToChapter('cover')" class="text-stone-400 hover:text-stone-600 transition text-sm">
+                        Voltar à Capa
+                    </button>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="px-6 md:px-16 lg:px-24 py-12 border-t border-stone-200 mt-20">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-stone-400 text-sm">© Mãe Ceres: Filhos da Revolução 2026 O Livro Digital. Todos os Direitos Reservados.</p>
+                    <div class="flex gap-6 text-stone-400 text-sm">
+                        <a href="./index.html" class="hover:text-stone-600 transition">Sobre</a>
+                        <a href="./index.html" class="hover:text-stone-600 transition">Créditos</a>
+                        <a href="./index.html" class="hover:text-stone-600 transition">Contato</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Desktop Navigation Dots -->
+        <div class="fixed right-6 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col gap-3">
+            <button onclick="goToChapter('cover')" class="nav-dot" data-target="cover" title="Capa"></button>
+            <button onclick="goToChapter('chapter1')" class="nav-dot" data-target="chapter1" title="Capítulo I"></button>
+            <button onclick="goToChapter('chapter2')" class="nav-dot" data-target="chapter2" title="Capítulo II"></button>
+            <button onclick="goToChapter('chapter3')" class="nav-dot" data-target="chapter3" title="Capítulo III"></button>
+        </div>
+    </div>
+
+    <script>
+        // Table of Contents Data
+        const chapters = [
+            { id: 'cover', title: 'Capa', number: '' },
+            { id: 'chapter1', title: 'Mãe Ceres', number: 'I' },
+            { id: 'chapter2', title: 'Bandeira Cinza-escuro e as Chaves Cruzadas de Ceres', number: 'II' },
+            { id: 'chapter3', title: 'Em Breve...', number: 'III' }
+        ];
+
+        // Populate TOC
+        function populateToc() {
+            const desktopToc = document.getElementById('desktopToc');
+            const mobileToc = document.getElementById('mobileToc');
+            
+            chapters.forEach(ch => {
+                // Desktop
+                const deskItem = document.createElement('a');
+                deskItem.href = `#${ch.id}`;
+                deskItem.onclick = (e) => { e.preventDefault(); goToChapter(ch.id); };
+                deskItem.className = `block py-2 px-3 rounded-sm text-sm transition-colors duration-200 ${ch.id === 'cover' ? 'text-stone-500 hover:text-stone-800' : 'text-stone-600 hover:bg-stone-50 hover:text-stone-900'}`;
+                deskItem.innerHTML = ch.number 
+                    ? `<span class="text-stone-400 mr-2">${ch.number}.</span>${ch.title}`
+                    : ch.title;
+                deskItem.dataset.target = ch.id;
+                desktopToc.appendChild(deskItem);
+
+                // Mobile
+                const mobItem = document.createElement('a');
+                mobItem.href = `#${ch.id}`;
+                mobItem.onclick = (e) => { e.preventDefault(); goToChapter(ch.id); toggleMenu(); };
+                mobItem.className = 'block py-3 px-4 text-stone-700 hover:bg-stone-50 rounded-sm transition';
+                mobItem.innerHTML = ch.number
+                    ? `<span class="text-stone-400 mr-3 font-serif text-lg">${ch.number}</span><span class="font-serif text-lg">${ch.title}</span>`
+                    : `<span class="font-serif text-lg italic">Capa</span>`;
+                mobileToc.appendChild(mobItem);
+            });
+        }
+
+        // Navigation
+        let currentChapter = 'cover';
+        
+        function goToChapter(id) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden-page');
+                page.classList.remove('active');
+            });
+            
+            // Show target
+            const target = document.getElementById(id);
+            if (target) {
+                target.classList.remove('hidden-page');
+                target.classList.add('active');
+                currentChapter = id;
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Update active states
+                updateActiveStates();
+            }
+        }
+
+        function updateActiveStates() {
+            // Update TOC
+            document.querySelectorAll('#desktopToc a').forEach(link => {
+                if (link.dataset.target === currentChapter) {
+                    link.classList.add('bg-stone-100', 'text-stone-900', 'font-medium');
+                    link.classList.remove('text-stone-600');
+                } else {
+                    link.classList.remove('bg-stone-100', 'text-stone-900', 'font-medium');
+                    link.classList.add('text-stone-600');
+                }
+            });
+
+            // Update dots
+            document.querySelectorAll('.nav-dot').forEach(dot => {
+                if (dot.dataset.target === currentChapter) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Mobile Menu
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('open');
+        }
+
+        // Progress Bar
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Update reading percentage text
+            const readingProgress = document.getElementById('readingProgress');
+            if (readingProgress) {
+                readingProgress.textContent = Math.round(progress) + '% lido';
+            }
+        }
+
+        window.addEventListener('scroll', updateProgress);
+
+        // Initialize
+        populateToc();
+        updateActiveStates();
+        updateProgress();
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const currentIndex = chapters.findIndex(ch => ch.id === currentChapter);
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                if (currentIndex < chapters.length - 1) {
+                    goToChapter(chapters[currentIndex + 1].id);
+                }
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                if (currentIndex > 0) {
+                    goToChapter(chapters[currentIndex - 1].id);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
