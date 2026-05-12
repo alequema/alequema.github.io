@@ -1264,52 +1264,87 @@ document.getElementById("video-player").addEventListener("click", function () {
     </div>
 </section>
 
-    <!-- Book Section -->
-<section id="book" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');">
-    
+   <!-- Book Section -->
+<section id="book"
+         class="section-bg-animated relative py-32 px-6"
+         style="--bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');">
+
     <style>
-        #book::before { background-image: var(--bg-image); }
+        #book::before {
+            background-image: var(--bg-image);
+        }
     </style>
 
-    <div class="max-w-4xl mx-auto text-center">
+    <div class="max-w-6xl mx-auto">
 
-        <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
 
-            <h2 class="font-cinzel text-5xl md:text-7xl font-bold tracking-wider">
-                LIVRO FÍSICO
-            </h2>
+            <!-- Texto + Formulário -->
+            <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 text-center md:text-left">
 
-            <p class="mt-6 text-2xl md:text-3xl tracking-[0.3em] text-gray-300">
-                EM BREVE!
-            </p>
-<form action="https://formspree.io/f/xeenozla" method="POST" class="mt-10 space-y-4 max-w-md mx-auto">
+                <h2 class="font-cinzel text-5xl md:text-7xl font-bold tracking-wider">
+                    LIVRO FÍSICO
+                </h2>
 
-  <input type="text" name="nome" placeholder="Seu nome" required>
-  
-  <input type="email" name="email" placeholder="Seu email" required>
-  
-  <input type="number" name="quantidade" placeholder="Quantidade" min="1">
+                <p class="mt-6 text-2xl md:text-3xl tracking-[0.3em] text-gray-300">
+                    EM BREVE!
+                </p>
 
-  <!-- Anti-spam -->
-  <input type="text" name="_gotcha" style="display:none">
+                <form action="https://formspree.io/f/xeenozla"
+                      method="POST"
+                      class="mt-10 space-y-4 max-w-md mx-auto md:mx-0">
 
-  <input type="hidden" name="_subject" value="Nova reserva de livro!">
-  <input type="hidden" name="_next" value="https://maeceres.com.br/obrigado.html">
+                    <input type="text"
+                           name="nome"
+                           placeholder="Seu nome"
+                           required>
 
-  <button type="submit">Reservar meu livro</button>
+                    <input type="email"
+                           name="email"
+                           placeholder="Seu email"
+                           required>
 
-</form>
- <div class="reveal-on-scroll opacity-0 translate-x-8 transition-all duration-1000">
-                    <div class="relative card-glow">
-                        <img src="./livro.jpg" 
-                             alt="Livro fisíco" 
-                             class="w-full aspect-square object-cover">
-                        <div class="absolute inset-0 border border-white/20 translate-4 -translate-x-4 -translate-y-4"></div>
-                    </div>
+                    <input type="number"
+                           name="quantidade"
+                           placeholder="Quantidade"
+                           min="1">
+
+                    <!-- Anti-spam -->
+                    <input type="text"
+                           name="_gotcha"
+                           style="display:none">
+
+                    <input type="hidden"
+                           name="_subject"
+                           value="Nova reserva de livro!">
+
+                    <input type="hidden"
+                           name="_next"
+                           value="https://maeceres.com.br/obrigado.html">
+
+                    <button type="submit">
+                        Reservar meu livro
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- Imagem -->
+            <div class="reveal-on-scroll opacity-0 translate-x-8 transition-all duration-1000">
+
+                <div class="relative card-glow">
+
+                    <img src="./livro.jpg"
+                         alt="Livro físico"
+                         class="w-full max-w-md mx-auto object-cover rounded-xl">
+
+                    <div class="absolute inset-0 border border-white/20 translate-x-4 -translate-y-4 rounded-xl"></div>
+
                 </div>
 
+            </div>
 
-            
         </div>
 
     </div>
