@@ -175,6 +175,66 @@
             .no-print { display: none !important; }
             .page { display: block !important; page-break-after: always; }
         }
+
+                /* Dialogue Styles */
+        .dialogue-block {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: var(--dialog-bg);
+            border-radius: 4px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .dialogue-line {
+            margin: 1rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .dialogue-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .speaker {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .speech {
+            color: var(--ink);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            padding-left: 0.5rem;
+        }
+        
+        .dialogue-action {
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+                @media (max-width: 768px) {
+            .dialogue-block {
+                padding: 1rem;
+                margin: 1.5rem -1rem;
+                border-radius: 0;
+            }
+        }
+
+
+
     </style>
 </head>
 <body class="antialiased">
@@ -292,7 +352,7 @@
                              alt="Espaço minimalista interior" 
                              class="w-full h-[50vh] object-cover book-image">
                         <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
-                            Mãe Ceres segura o futuro em seus braços.
+                            Mãe Ceres seguro o futuro em seus braços.
                         </figcaption>
                     </figure>
 
@@ -855,10 +915,451 @@ Ali, cada ser humano é ferramenta — mesmo aqueles com corpos defeituosos —,
                 </div>
             </section>
 
+
+
+
+
+
             <!-- Chapter 3 -->
             <section id="chapter3" class="page hidden-page min-h-screen px-6 md:px-16 lg:px-24 py-20 md:py-24 max-w-4xl mx-auto">
                 <div class="mb-16">
                     <span class="text-stone-400 text-sm uppercase tracking-[0.2em] block mb-4">Capítulo III</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-6">Flagball</h2>
+                    <div class="w-16 h-px bg-stone-300"></div>
+                </div>
+
+            <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">O Locutor</div>
+                            <div class="speech">— Senhoras e senhores de todas as cidades-vale, sejam bem-vindos à arena central de Ceres. Esta noite, o Flagball não é apenas esporte — é devoção, disciplina, guerra com elegância. De um lado, a nossa seleção dourada de Ceres. Do outro, os desordeiros de Arcádia, que ousam nos desafiar em nossa própria casa. As arquibancadas estão lotadas. Ninguém fica de fora quando a Mãe Ceres nos chama para defender a honra que só Ela pode conceder...</div>
+                        </div>
+                        
+                    </div>
+
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                        A transmissão invade um pequeno alojamento cinzento no internato central. Luz fraca, cama bem-feita, estantes alinhadas. O rádio, antigo mas robusto, vibra no parapeito da janela.
+Encostado na cadeira de rodas, pernas imóveis, mas postura relaxada, Daime sorri torto ao ouvir a solenidade do locutor. Um cigarro apagado pendurado no canto da boca, ele balança a cabeça e murmura sozinho:
+
+                    </p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Daime</div>
+                            <div class="speech">— Ah, vai tomar no cu com essa merda de “honra concedida”... Quero ver quem vai sair cuspindo sangue hoje. Vai, Theo, mostra pra esse bando de bunda-mole por que eu ainda aposto em você, porra...</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Resmungando, sarcástico.</div>
+
+                    <!--                     <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">O Garçom</div>
+                            <div class="speech">"Boa tarde. Está procurando alguma coisa em especial?"</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Clara sacode a água da capa de chuva, hesitante.</div>
+                        
+                        <div class="dialogue-line">
+                            <div class="speaker">Clara</div>
+                            <div class="speech">"Só um lugar para secar. E talvez um café, se não for incomodar."</div>
+                        </div>
+                        
+                        <div class="dialogue-line">
+                            <div class="speaker">O Garçom</div>
+                            <div class="speech">"Nenhum lugar que seca almas é incomodado por alguém que busca abrigo. Sente-se onde quiser."</div>
+                        </div>
+                    </div>-->
+                    </div>
+                    <!-- Full width image -->
+                    <figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="./5a.png?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Flagball - Esporte com elegância.
+                        </figcaption>
+                    </figure>
+                    <p class="text-stone-600 leading-relaxed mb-6 text-justify">
+                        Com um estalo de dedos, aumenta um pouco o volume e apoia os cotovelos no braço da cadeira, atento, mas sem perder o ar de sadismo divertido.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">O campo oval brilha sob os grandes refletores; um mar de uniformes negros com detalhes dourados enche as arquibancadas. Os cidadãos perfilados, em silêncio quase religioso, aguardam a entrada dos jogadores.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Um coro de vozes preenche a arena, cantando em uníssono o hino de Ceres, enquanto a bandeira tremula no topo do mastro central: Mãe Ceres que nos alimenta, nos educa e nos devora... Mãe Ceres que nos alimenta, nos educa e nos devora...</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Os jogadores da seleção de Ceres marcham para o centro do campo, um a um, perfilando-se em fila dupla, de costas uns para os outros.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">No centro, Theo, camisa 8, com semblante calmo, porém duro. À sua direita, Dark, camisa 9, olhar de predador, sorriso torto no rosto. À esquerda, Gene, camisa 5, inquieto, ajustando o capacete com mãos trêmulas. Atrás deles, Cors (3), sobrancelhas franzidas, punhos cerrados. Por último, Vanks, o goleiro (1), firme como uma muralha, embora os olhos frios disparem setas em direção a Theo.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Todos erguem o braço esquerdo sobre a cabeça, palma aberta, dedos fechados na vertical. A multidão repete o gesto, num mar perfeitamente coordenado.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Por um instante, só o som dos tambores dos cidadãos de Ceres e a respiração ofegante ecoam no estádio.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">No centro da tribuna de honra, Mãe Ceres observa — uma figura imponente, envolta em véus negros, com semblante impossível de decifrar.</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Quando o árbitro assinala para os times se posicionarem, uma tensão elétrica percorre a equipe de Ceres.</p>
+
+
+<p class="text-stone-600 leading-relaxed mb-8 text-justify text-lg font-semibold">
+    Diálogo dos jogadores (baixinho, durante a formação inicial):
+</p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Dark (9):</div>
+                            <div class="speech">— Não encosta em mim, verme. Fica no teu canto e não atrapalha. </div>
+                        </div>
+                        <div class="dialogue-action">Sorriso cruel para Theo.</div>
+                        <div class="dialogue-line">
+                        <div class="speech">— Eu adoro ver você tentando parecer um líder. Tão... patético. </div>
+                        </div>
+                        
+                        <div class="dialogue-line">
+                            <div class="speaker">Theo (8)</div>
+                            <div class="speech">— Cala a boca e joga. Não preciso que você goste de mim. Preciso que marque direito. Ou vai entregar o jogo pra Arcádia também?</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Frio, sem encarar Dark.</div>
+
+                        
+                        <div class="dialogue-line">
+                            <div class="speaker">Dark (9):</div>
+                            <div class="speech">— Talvez eu entregue só pra ver a sua cara de fracasso.</div>
+                            <div class="dialogue-action">Rindo baixo, venenoso.</div>
+                        </div>
+                        
+                        <div class="dialogue-line">
+                            <div class="speaker">Cors (3):</div>
+                            <div class="speech">— Liderzinho ridículo... quem deveria comandar isso aqui sou eu.</div>
+                            <div class="dialogue-action">Resmungando enquanto ajusta as ombreiras.</div>
+                        </div>
+                    
+
+                    <div class="dialogue-line">
+                            <div class="speaker">Theo (8)</div>
+                            <div class="speech">— No dia que aprender a controlar seu temperamento, talvez. Até lá... segue minhas ordens.</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Seco, para Cors.</div>
+
+                    <div class="dialogue-line">
+                            <div class="speaker">Gene (5)</div>
+                            <div class="speech">— Eles... eles tão olhando pra gente lá da tribuna. A Mãe tá... assistindo.</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Sussurrando e nervoso.</div>
+
+                    <div class="dialogue-line">
+                            <div class="speaker">Theo (8)</div>
+                            <div class="speech">— Sempre está. Nunca se esqueça disso.</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Finalmente erguendo o olhar para a tribuna.</div>
+
+                        <div class="dialogue-line">
+                            <div class="speaker">Vanks (1):
+                            </div>
+                            <div class="speech">— Você adora falar como se fosse filho preferido dela, não é? Não passa de mais um peão, igual a gente.</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Atrás e ríspido.</div>
+
+                        <div class="dialogue-line">
+                            <div class="speaker">Theo:
+                            </div>
+                            <div class="speech">— Talvez. Mas sou o peão que vai ganhar o jogo pra Ela.</div>
+                        </div>
+                        
+                        <div class="dialogue-action">Firme, ainda olhando pra tribuna.</div>
+                        </div>
+
+                                        <div class="prose prose-lg max-w-none">
+                    <p class="text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                       De volta ao alojamento, Daime dá uma gargalhada seca, ouvindo a multidão ecoar pela transmissão:</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">MÃE CERES QUE NOS ALIMENTA, NOS EDUCA E NOS DEVORA!</p>
+<p class="text-stone-600 leading-relaxed mb-6 text-justify">Ele bate com a palma na cadeira e cospe no chão ao lado, rindo sozinho:
+
+
+                    </p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Daime:</div>
+                            <div class="speech">— Isso, porra. Vai lá, Theo... mete a porrada nesses filhos da puta e prova pra essa Mãe que você é o único filho que ainda vale a pena."</div>
+                        </div>
+                
+                    </div>
+
+                    <div class="scene-break">* * *</div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        O apito inicial ecoa. Os jogadores se lançam para frente como soldados numa batalha. A guerra com elegância começa.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O apito soou estridente no campo, encerrando o primeiro tempo. O placar agora brilhava no alto da arena: Ceres 3 – Arcádia 3.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A multidão aplaudia em uníssono, repetindo o mantra como um trovão:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">MÃE CERES QUE NOS ALIMENTA, NOS EDUCA E NOS DEVORA!</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Os jogadores de Ceres deixaram o campo em fila, ainda com o braço esquerdo erguido no gesto ritual, mas as expressões endurecidas não enganavam ninguém. O empate fora conquistado à força, mas as feridas internas ainda estavam abertas.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">No vestiário subterrâneo, a luz fria das lâmpadas não escondia o cheiro metálico de suor e raiva. As portas se fecharam com estrondo.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Dark foi o primeiro a soltar a língua, empurrando Theo com o ombro ao passar:</p>
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Dark:
+
+</div>
+                            <div class="speech">— Esse empate é seu fracasso, liderzinho de merda.</div>
+                            <div class="dialogue-action">Venenoso, cuspindo as palavras.</div>
+                        </div>
+                
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Theo girou, seu olhar faiscando. Sem pensar, agarrou Dark pelo colarinho e o empurrou contra o armário, o barulho ecoando pelo vestiário. Cors e Vanks avançaram, prontos para separar os dois — ou para entrar na briga.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O apito soou estridente no campo, encerrando o primeiro tempo. O placar agora brilhava no alto da arena: Ceres 3 – Arcádia 3.</p>
+                    
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Cors:</div>
+                            <div class="speech">— CHEGA! Vocês vão se matar aqui dentro? É isso? Querem dar o jogo pra Arcádia?!</div>
+                            <div class="dialogue-action">Rosnando.</div>
+
+                        </div>
+                         <div class="dialogue-line">
+                            <div class="speaker">Vanks:</div>
+                            <div class="speech">— Um líder que perde a cabeça é só mais um moleque jogando.</div>
+                            <div class="dialogue-action">Frio, com desprezo para Theo.</div>
+                        </div>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Theo soltou Dark, mas ficou ali, respirando pesado, o maxilar trincado. Dark, mesmo ainda encostado no armário, sorria com aquela crueldade habitual.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Antes que a situação explodisse de vez, o técnico entrou no vestiário batendo palmas altas, o apito pendurado no pescoço:
+</p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Técnico:</div>
+                            <div class="speech">— CALA A BOCA TODO MUNDO! Sentem. Agora.</div>
+                            <div class="dialogue-action">Curto e grosso.</div>
+                        </div>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        A equipe se sentou nos bancos, relutante, cada um encarando o chão, os próprios punhos ou o vazio. O técnico começou a falar sobre marcação, táticas, disciplina... mas poucos ouviam de verdade. A raiva ainda fervia sob a pele.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Quando o técnico finalmente saiu para organizar a volta ao campo, Theo ficou em pé diante deles, sozinho. O silêncio era denso. Ele olhou para cada um, os olhos negros cheios de algo difícil de definir — ódio, talvez... mas também ambição.
+</p>
+                    
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Theo:</div>
+                            <div class="speech">— Vocês me odeiam. Eu sei. E eu odeio vocês também. Cada um. Porque são arrogantes, mimados, cabeça-quente. São um bando de inúteis que só sabem reclamar.</div>
+                            <div class="dialogue-action">Voz baixa no início, mas ganhando força.</div>
+                        </div>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Alguns se mexeram, inquietos. Dark arqueou uma sobrancelha, curioso.</p>
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Theo:</div>
+                            <div class="speech">— Mas sabem o que eu odeio mais? Perder. E vocês também. Então podem me odiar o quanto quiserem, podem me chamar de patético, podem sonhar com o dia em que vão tomar o meu lugar. Mas hoje... vocês vão jogar. E vão ganhar. Porque se perderem... não é só a mim que vão desonrar. É a Mãe.</div>
+                            <div class="dialogue-action">Continuando, com um meio sorriso amargo.</div>
+                        </div>
+                    </div>
+                     <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Gene ergueu os olhos, Cors bufou, e até Vanks pareceu conter um resmungo. Dark olhou para Theo e riu, mas dessa vez não disse nada — apenas se levantou e estendeu a mão para ajustar as fitas do uniforme.</p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Theo:</div>
+                            <div class="speech">— Entendam isso: não precisamos gostar uns dos outros pra vencer. Só precisamos vencer.</div>
+                            <div class="dialogue-action">Concluiu, duro, encarando-os.</div>
+                        </div>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">O apito ecoou de novo lá fora, chamando os jogadores para o segundo tempo.
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Um a um, eles se ergueram e caminharam para a porta. As tensões não sumiram, mas estavam moldadas agora, afiadas como uma lâmina.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Naquele momento, os filhos de Ceres não se suportavam... mas amavam demais a vitória para desistir dela.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O segundo tempo foi um massacre.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A seleção de Ceres voltou para o campo como uma fera solta, um bando de predadores enjaulados que finalmente encontraram a presa.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Cada jogada era mais agressiva que a anterior, os cidadãos nas arquibancadas gritavam o hino da Mãe Ceres sem parar, um mar de braços erguidos em devoção enquanto os adversários de Arcádia desmoronavam, um a um, no gramado.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O placar disparou: 4 a 3. 5 a 3. 6 a 3.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Humilhação completa.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E Dark estava no centro do caos.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Camisa 9, um demônio dourado. Rápido, impiedoso, cruel.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A cada gol, ele olhava para as arquibancadas e abria os braços, bebendo os aplausos como um viciado em dor.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Em um lance duro na lateral, trombou com um dos jogadores de Arcádia, que já mal se aguentava em pé. Dark caiu, mas riu ao se levantar, encarando o rival:</p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Dark:</div>
+                            <div class="speech">— Vai pra casa, verme... a Mãe não dá esmola pros filhos bastardos.</div>
+                            <div class="dialogue-action">Venenoso, para o rival, alto o bastante para todos ouvirem.</div>
+                        </div>
+                    </div>
+                     <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        O jogador de Arcádia se enfureceu. Empurrou Dark com força no peito, quase derrubando-o novamente.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Dark abriu um sorriso, já preparando o soco... mas antes que pudesse reagir, Theo já estava ali.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Braço firme no ombro de Dark, segurando-o no lugar:</p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Theo:</div>
+                            <div class="speech">— Não. Não hoje.</div>
+                        </div>
+                    </div>
+                     <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        Outros de Ceres se meteram, separando os dois times antes que a situação explodisse de vez.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Dark ficou imóvel por um segundo, o sorriso ainda estampado no rosto.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mas quando sentiu a mão de Theo em si, virou o rosto, olhando-o com puro veneno:</p>
+
+                    <div class="dialogue-block">
+                        <div class="dialogue-line">
+                            <div class="speaker">Dark:</div>
+                            <div class="speech">— Não encosta em mim. Nunca.</div>
+                            <div class="dialogue-action">Áspero, rosnando entre dentes, só pra ele.</div>
+                        </div>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">Theo só o encarou, sem soltar, até Dark se acalmar por vontade própria.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O árbitro, pressionado pelo ritual do cidadão de Ceres, não deu punição para nenhum deles.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Quando o jogo recomeçou, o clima continuava pesado.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Theo e Dark voltaram a seus lugares no campo.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Inimigos naturais, cada um odiando tudo o que o outro representava:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Um era puro fígado — instinto, raiva, veneno.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O outro era cérebro — cálculo, disciplina, estratégia.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ódio um pelo outro. Ódio por Arcádia. Ódio por qualquer um que ousasse manchar o nome da Mãe.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E com isso bastava.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O jogo terminou 6 a 3 para Ceres.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Humilhação absoluta.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O estádio inteiro em transe, gritando em coro, os braços erguidos para o céu:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">MÃE CERES QUE NOS ALIMENTA, NOS EDUCA E NOS DEVORA! </p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">MÃE CERES QUE NOS ALIMENTA, NOS EDUCA E NOS DEVORA!</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Os jogadores de Ceres saíram do campo sem se olharem, mas com um pacto silencioso:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Não precisavam se amar.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Só precisavam vencer.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E venceram.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A partida já estava ganha, mas eles queriam mais.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ceres massacrou Arcádia sem piedade, como sempre, como era esperado. Seus filhos não sabiam mais jogar por paixão — jogavam por instinto, por disciplina... por fome.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mãe Ceres os havia moldado assim.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Troca justa: sentimentos por chumbo, liberdade por obediência.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Eles afundaram felizes nessa troca, incapazes de conceber um mundo sem sua Mãe.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">No alto da tribuna, Ela observava.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Mãe Ceres, sempre de branco imaculado.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O vestido longo, a saia tão vasta que ocultava os pés e fazia parecer que flutuava.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">As luvas finas, translúcidas, repousavam sobre o parapeito como pétalas de vidro.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">No rosto, a coroa de cristal que a circundava completamente, descia até o queixo — e no centro, em vez de um rosto humano, apenas a redoma ovalada, escura e polida como um espelho negro.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Um espelho que devolve a imagem de quem ousasse olhá-la diretamente.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Quem via a Mãe, via a si mesmo.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E odiava ou amava o que via.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ela inclinava a cabeça, sempre elegante, sempre silenciosa, apreciando o espetáculo abaixo:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Seus brinquedos favoritos, seus cães mais fiéis, Theo e Dark.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">O cérebro e o fígado.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A razão e a violência.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Cada um odiando o outro com uma devoção que só Ela poderia inspirar.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E ainda assim incapazes de parar.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Pedindo mais carne.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Querendo provar do sangue um do outro, mesmo quando devoravam o inimigo.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Para Ela, era divertido.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Porque Ela sabia: todos eles eram só isso.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Brinquedos divertidos.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Soldados moldados para guerra, para dor, para submissão.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Não havia deuses imaginários em Ceres.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Havia apenas Ela.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">A Mãe que nunca deixou seus filhos sem resposta, sem alimento, sem propósito.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Liberdade?</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Liberdade era a inimiga.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E eles já haviam aprendido que o mundo está constantemente em guerra; a paz é apenas um acidente.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Os olhos (ou aquilo que Ela tinha em vez de olhos) seguiram Theo quando ele segurou Dark pelo ombro, no meio da confusão, impedindo-o de socar o adversário.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Viu como Dark odiou aquele toque.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Como Theo odiou ter que fazê-lo.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Como ambos se calaram, porque sabiam que Ela estava olhando.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E o estádio inteiro, cidadãos de Ceres, perfilou-se e ergueu os braços ao céu, em adoração, cantando o hino que ecoava na estrutura colossal:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">MÃE CERES QUE NOS ALIMENTA, NOS EDUCA E NOS DEVORA!</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">MÃE CERES QUE NOS ALIMENTA, NOS EDUCA E NOS DEVORA!</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Ela permaneceu imóvel, refletindo apenas os rostos deformados de desejo e ódio que a olhavam.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E no fundo de sua voz silenciosa, pensou:</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Meus filhos. Meus brinquedos. Tão previsíveis. Tão deliciosamente previsíveis.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E abaixo, no campo, Theo e Dark jogavam não por glória.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">Jogavam porque Ela não deixava alternativa.</p>
+<p class="text-stone-600 leading-relaxed mb-8 text-justify">E nada, ninguém, jamais escaparia do colo da Mãe.</p>
+
+<!--
+                <div class="mt-16 pt-8 border-t border-stone-200 flex justify-between items-center">
+                    <span class="text-stone-400 text-sm">Fim do Capítulo III</span>
+                    <button onclick="scrollToChapter('chapter2')" class="group flex items-center gap-2 text-stone-800 hover:text-stone-600 transition">
+                        <span class="text-sm">Próximo Capítulo</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+
+
+
+
+
+
+             Chapter 3 
+            <section id="chapter3" class="page hidden-page min-h-screen px-6 md:px-16 lg:px-24 py-20 md:py-24 max-w-4xl mx-auto">
+                <div class="mb-16">
+                    <span class="text-stone-400 text-sm uppercase tracking-[0.2em] block mb-4">Capítulo III</span>
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-6">Em Breve...</h2>
+                    <div class="w-16 h-px bg-stone-300"></div>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="drop-cap text-lg md:text-xl text-stone-700 leading-relaxed mb-8 text-justify">
+                        
+                    </p>
+
+                     Full width image 
+                    <figure class="my-12 -mx-6 md:-mx-16 lg:-mx-24">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&h=700&fit=crop" 
+                             alt="Espaço minimalista interior" 
+                             class="w-full h-[50vh] object-cover book-image">
+                        <figcaption class="px-6 md:px-16 lg:px-24 mt-4 text-stone-400 text-sm italic">
+                            Figura 3.1 — O vazio como presença: arquitetura japonesa contemporânea
+                        </figcaption>
+                    </figure>
+
+                    <p class="text-stone-600 leading-relaxed mb-6 text-justify">
+                       texto
+                    </p>
+
+                    <div class="my-12 bg-stone-100 p-8 md:p-12 rounded-sm">
+                        <h3 class="font-serif text-2xl italic text-stone-800 mb-4">Nota do Editor</h3>
+                        <p class="text-stone-600 leading-relaxed text-justify">
+                            tyexto
+                        </p>
+                    </div>
+
+                    <p class="text-stone-600 leading-relaxed mb-8 text-justify">
+                        texto
+                    </p>
+
+                    <div class="chapter-sep">
+                        <span class="text-stone-300 text-2xl">❦</span>
+                    </div>
+
+                    <p class="text-center text-stone-400 italic font-serif text-xl">
+                        Fim
+                    </p> --> -->
+                </div>
+
+                <div class="mt-20 pt-8 border-t border-stone-200 flex justify-between items-center">
+                    <button onclick="goToChapter('chapter2')" class="group flex items-center gap-2 text-stone-400 hover:text-stone-600 transition">
+                        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+                        </svg>
+                        <span class="text-sm">Anterior</span>
+                    </button>
+                    <span class="text-stone-400 text-sm">Fim do Capítulo III</span>
+                    <button onclick="goToChapter('chapter4')" class="group flex items-center gap-2 text-stone-800 hover:text-stone-600 transition">
+                        <span class="text-sm">Próximo</span>
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+
+ <!-- Chapter 3 -->
+            <section id="chapter4" class="page hidden-page min-h-screen px-6 md:px-16 lg:px-24 py-20 md:py-24 max-w-4xl mx-auto">
+                <div class="mb-16">
+                    <span class="text-stone-400 text-sm uppercase tracking-[0.2em] block mb-4">Capítulo IV</span>
                     <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-6">Em Breve...</h2>
                     <div class="w-16 h-px bg-stone-300"></div>
                 </div>
@@ -903,7 +1404,7 @@ Ali, cada ser humano é ferramenta — mesmo aqueles com corpos defeituosos —,
                 </div>
 
                 <div class="mt-20 pt-8 border-t border-stone-200 flex justify-between items-center">
-                    <button onclick="goToChapter('chapter2')" class="group flex items-center gap-2 text-stone-400 hover:text-stone-600 transition">
+                    <button onclick="goToChapter('chapter3')" class="group flex items-center gap-2 text-stone-400 hover:text-stone-600 transition">
                         <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
                         </svg>
@@ -915,14 +1416,16 @@ Ali, cada ser humano é ferramenta — mesmo aqueles com corpos defeituosos —,
                 </div>
             </section>
 
+
+
             <!-- Footer -->
             <footer class="px-6 md:px-16 lg:px-24 py-12 border-t border-stone-200 mt-20">
                 <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-stone-400 text-sm">© Mãe Ceres: Filhos da Revolução 2026 O Livro Digital. Todos os Direitos Reservados.</p>
                     <div class="flex gap-6 text-stone-400 text-sm">
-                        <a href="./index.html" class="hover:text-stone-600 transition">Sobre</a>
-                        <a href="./index.html" class="hover:text-stone-600 transition">Créditos</a>
-                        <a href="./index.html" class="hover:text-stone-600 transition">Contato</a>
+                        <a href="././index.html#history" class="hover:text-stone-600 transition">Sobre</a>
+                        <a href="./index.html#brothers" class="hover:text-stone-600 transition">Créditos</a>
+                        <a href="./index.html#updates" class="hover:text-stone-600 transition">Contato</a>
                     </div>
                 </div>
             </footer>
@@ -934,6 +1437,7 @@ Ali, cada ser humano é ferramenta — mesmo aqueles com corpos defeituosos —,
             <button onclick="goToChapter('chapter1')" class="nav-dot" data-target="chapter1" title="Capítulo I"></button>
             <button onclick="goToChapter('chapter2')" class="nav-dot" data-target="chapter2" title="Capítulo II"></button>
             <button onclick="goToChapter('chapter3')" class="nav-dot" data-target="chapter3" title="Capítulo III"></button>
+            <button onclick="goToChapter('chapter4')" class="nav-dot" data-target="chapter4" title="Capítulo IV"></button>
         </div>
     </div>
 
@@ -943,7 +1447,8 @@ Ali, cada ser humano é ferramenta — mesmo aqueles com corpos defeituosos —,
             { id: 'cover', title: 'Capa', number: '' },
             { id: 'chapter1', title: 'Mãe Ceres', number: 'I' },
             { id: 'chapter2', title: 'Bandeira Cinza-escuro e as Chaves Cruzadas de Ceres', number: 'II' },
-            { id: 'chapter3', title: 'Em Breve...', number: 'III' }
+            { id: 'chapter3', title: 'Flagball', number: 'III' },
+            { id: 'chapter4', title: 'O Colégio Militar', number: 'IV' }
         ];
 
         // Populate TOC
