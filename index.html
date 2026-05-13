@@ -634,7 +634,9 @@
     Tema central: controle vs. liberdade, humanidade vs. sistema, e o preço da sobrevivência em um mundo onde a paz é apenas um acidente.
 </p>
                     </p>
-<a href="https://www.youtube.com/shorts/uo5tJyGlSUY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white hover:text-gray-300 transition-colors group">
+<a href="#video"
+   onclick="irParaVideo(event)"
+   class="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white hover:text-gray-300 transition-colors group">
     Vídeo manifesto Mãe Ceres 
     <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -1667,6 +1669,34 @@ function trocarVideo(videoId, el) {
 
     document.getElementById("email-link").href = "mailto:" + email;
     document.getElementById("email-text").innerText = email;
+</script>
+<script>
+function irParaVideo(event) {
+    event.preventDefault();
+
+    // 1. ir até a seção
+    document.querySelector("#video").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    // 2. trocar vídeo (leve delay pra garantir que a seção já apareceu)
+    setTimeout(() => {
+        trocarVideo('1186613395');
+
+        // 3. opcional: marcar botão ativo
+        document.querySelectorAll(".video-btn").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        const manifestoBtn = [...document.querySelectorAll(".video-btn")]
+            .find(btn => btn.textContent.includes("Manifesto"));
+
+        if (manifestoBtn) {
+            manifestoBtn.classList.add("active");
+        }
+
+    }, 400);
+}
 </script>
 </body>
 </html>
