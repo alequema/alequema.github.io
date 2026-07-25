@@ -514,6 +514,8 @@
                     <a href="#video" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Vídeos</a>
                     <a href="#music" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Músicas</a>
                     <a href="#comprar" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Comprar</a>
+                    <a href="#kits" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Kits</a>
+                    <a href="#updates" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Updates</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden text-white">
@@ -535,6 +537,8 @@
                 <a href="#video" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Vídeos</a>
                 <a href="#music" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Músicas</a>
                 <a href="#comprar" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Comprar</a>
+                <a href="#kits" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Kits</a>
+                <a href="#updates" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Updates</a>
             </div>
         </div>
     </nav>
@@ -1408,6 +1412,92 @@ letter-spacing:1px;
 
 </section>
 
+<section id="kits"
+         class="section-bg-animated relative py-32 px-6"
+         style="--bg-image: url('./kit-bg.jpg');">
+
+    <style>
+        #kits::before {
+            background-image: var(--bg-image);
+        }
+    </style>
+
+    <div class="max-w-6xl mx-auto">
+
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+
+            <!-- Imagens -->
+<div class="reveal-on-scroll opacity-0 translate-x-8 transition-all duration-1000">
+
+    <div class="relative card-glow max-w-md mx-auto">
+
+        <!-- Imagem -->
+        <img id="kitImage"
+             src="./kit1.jpg"
+             alt="Kit Exclusivo"
+             class="w-full object-cover rounded-xl transition-all duration-500">
+
+        <!-- Moldura -->
+        <div class="absolute inset-0 border border-white/20 translate-x-4 -translate-y-4 rounded-xl pointer-events-none"></div>
+
+        <!-- Botão esquerdo -->
+        <button id="prevBtn"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-black/80 text-white text-2xl">
+            &#10094;
+        </button>
+
+        <!-- Botão direito -->
+        <button id="nextBtn"
+                class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-black/80 text-white text-2xl">
+            &#10095;
+        </button>
+
+    </div>
+
+</div>
+
+            <!-- Texto -->
+            <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+
+                <span class="tracking-[0.4em] text-amber-400 uppercase text-sm">
+                    Apenas 15 unidades
+                </span>
+
+                <h2 class="font-cinzel text-5xl md:text-7xl font-bold mt-4">
+                    Kits Exclusivos
+                </h2>
+
+                <p class="mt-8 text-lg leading-8 text-gray-300">
+                    Mais do que um livro, uma experiência de leitura.
+                    Foram produzidos apenas <strong>15 kits exclusivos</strong>,
+                    reunindo objetos inspirados no universo de
+                    <em>Mãe Ceres – Filhos da Revolução</em>,
+                    criados para tornar a imersão ainda mais completa.
+                </p>
+
+                <div class="mt-10 space-y-3 text-lg">
+
+                    <p>✓ Caixa cartonada personalizada</p>
+                    <p>✓ Livro <strong>Mãe Ceres – Filhos da Revolução</strong> (594 páginas)</p>
+                    <p>✓ Marcador de páginas em inox</p>
+                    <p>✓ Caneca de inox do refeitório da cidade de Ceres</p>
+                    <p>✓ Dedal de leitura</p>
+                    <p>✓ Caixa personalizada de chá preto</p>
+                    <p>✓ Caixa personalizada da Cora com sementes</p>
+                    <p>✓ Moeda da personagem Dru</p>
+                    <p>✓ Vela de incenso</p>
+                    <p>✓ Carta do autor personalizada</p>
+
+                </div>
+                <!-- 
+                <a href="#contato"
+                   class="inline-block mt-10 px-10 py-4 border border-white hover:bg-white hover:text-black transition-all tracking-widest uppercase">
+                    Quero um Kit
+                </a> Texto -->
+
+            </div>
+
+
 <section id="comprar">
   <p class="comprar-eyebrow">Disponível agora</p>
   <h2 class="comprar-titulo">Adquira o livro</h2>
@@ -1750,6 +1840,33 @@ const intervalo = setInterval(() => {
         clearInterval(intervalo);
     }
 }, 10000);
+</script>
+
+<script>
+const imagens = [
+    "./kit1.jpg",
+    "./kit2.jpg",
+    "./kit3.jpg",
+    "./kit4.jpg",
+    "./kit5.jpg"
+];
+
+let atual = 0;
+const img = document.getElementById("kitImage");
+
+function mostrarImagem(){
+    img.src = imagens[atual];
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+    atual = (atual + 1) % imagens.length;
+    mostrarImagem();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+    atual = (atual - 1 + imagens.length) % imagens.length;
+    mostrarImagem();
+});
 </script>
 
 </body>
