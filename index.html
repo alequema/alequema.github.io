@@ -1084,38 +1084,90 @@ Ela é silêncio afiado — quanto menos diz, mais tudo ao redor treme.</p>
                 <p class="text-gray-400 tracking-[0.2em] uppercase text-sm">Visão de Mundo</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="reveal-on-scroll opacity-0 scale-95 transition-all duration-1000 group overflow-hidden card-glow">
-                    <img src="./fundo1.png" 
-                         alt="Concept 1" 
-                         class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="reveal-on-scroll opacity-0 scale-95 transition-all duration-1000 delay-100 group overflow-hidden card-glow">
-                    <img src="./5a.png" 
-                         alt="Concept 2" 
-                         class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="reveal-on-scroll opacity-0 scale-95 transition-all duration-1000 delay-200 group overflow-hidden card-glow">
-                    <img src="./fundo2.jpg" 
-                         alt="Concept 3" 
-                         class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="reveal-on-scroll opacity-0 scale-95 transition-all duration-1000 delay-300 group overflow-hidden card-glow">
-                    <img src="./1a.png" 
-                         alt="Concept 4" 
-                         class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="reveal-on-scroll opacity-0 scale-95 transition-all duration-1000 delay-400 group overflow-hidden card-glow">
-                    <img src="./3a.png" 
-                         alt="Concept 5" 
-                         class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-                <div class="reveal-on-scroll opacity-0 scale-95 transition-all duration-1000 delay-500 group overflow-hidden card-glow">
-                    <img src="./4a.png" 
-                         alt="Concept 6" 
-                         class="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
+            <div class="relative max-w-6xl mx-auto">
+
+    <!-- Área do carrossel -->
+    <div class="relative overflow-hidden card-glow">
+
+        <div id="concept-carousel"
+             class="flex transition-transform duration-700 ease-in-out">
+
+            <div class="min-w-full">
+                <img src="./fundo1.png"
+                     alt="Concept 1"
+                     class="w-full aspect-[16/9] object-cover">
             </div>
+
+            <div class="min-w-full">
+                <img src="./5a.png"
+                     alt="Concept 2"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./fundo2.jpg"
+                     alt="Concept 3"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./1a.png"
+                     alt="Concept 4"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./3a.png"
+                     alt="Concept 5"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./4a.png"
+                     alt="Concept 6"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+        </div>
+
+        <!-- Seta esquerda -->
+        <button
+            id="concept-prev"
+            type="button"
+            aria-label="Imagem anterior"
+            class="absolute left-5 top-1/2 -translate-y-1/2
+                   w-12 h-12 rounded-full
+                   bg-black/60 hover:bg-black/90
+                   text-white text-3xl
+                   flex items-center justify-center
+                   transition-all duration-300
+                   backdrop-blur-sm">
+            ‹
+        </button>
+
+        <!-- Seta direita -->
+        <button
+            id="concept-next"
+            type="button"
+            aria-label="Próxima imagem"
+            class="absolute right-5 top-1/2 -translate-y-1/2
+                   w-12 h-12 rounded-full
+                   bg-black/60 hover:bg-black/90
+                   text-white text-3xl
+                   flex items-center justify-center
+                   transition-all duration-300
+                   backdrop-blur-sm">
+            ›
+        </button>
+
+    </div>
+
+    <!-- Indicadores -->
+    <div id="concept-dots"
+         class="flex justify-center gap-2 mt-6">
+    </div>
+
+</div>
         </div>
     </section>
 
@@ -1881,6 +1933,73 @@ document.getElementById("prevBtn").addEventListener("click", () => {
     atual = (atual - 1 + imagens.length) % imagens.length;
     mostrarImagem();
 });
+</script>
+
+<script>
+    const carousel = document.getElementById("concept-carousel");
+    const prevButton = document.getElementById("concept-prev");
+    const nextButton = document.getElementById("concept-next");
+    const dotsContainer = document.getElementById("concept-dots");
+
+    const totalSlides = carousel.children.length;
+    let currentSlide = 0;
+
+    // Criar indicadores
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.className =
+            "w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all duration-300";
+
+        dot.addEventListener("click", () => {
+            currentSlide = i;
+            updateCarousel();
+        });
+
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function updateCarousel() {
+        carousel.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle(
+                "bg-white",
+                i === currentSlide
+            );
+
+            dots[i].classList.toggle(
+                "bg-white/40",
+                i !== currentSlide
+            );
+        }
+    }
+
+    nextButton.addEventListener("click", () => {
+        currentSlide++;
+
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        }
+
+        updateCarousel();
+    });
+
+    prevButton.addEventListener("click", () => {
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+
+        updateCarousel();
+    });
+
+    updateCarousel();
 </script>
 
 </body>
