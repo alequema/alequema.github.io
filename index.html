@@ -911,247 +911,472 @@
         </div>
     </section>
     
-    <!-- Characters Section -->
-    <section id="characters" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('./fundo2.jpg')">
-        <style>#characters::before { background-image: var(--bg-image); }</style>
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20 reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
-                <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-4 tracking-wider">PERSONAGENS</h2>
-                <p class="text-gray-400 tracking-[0.2em] uppercase text-sm">A Mãe e seus filhos</p>
-            </div>
+<!-- Characters Section -->
+<section id="characters" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('./fundo2.jpg')">
+    <style>
+        #characters::before {
+            background-image: var(--bg-image);
+        }
+    </style>
 
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Character 1 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./maeceres.html" class="block w-full h-full">
-                        <img src="./001.png" 
-                             alt="O Sistema" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Mãe Ceres é uma líder absoluta que oferece proteção e sobrevivência em troca da completa submissão, tratando seus cidadãos como filhos — e também como propriedade.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">MÃE CERES</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Alimenta, educa e devora</p>
-                </div>
+    <div class="max-w-7xl mx-auto">
 
-                <!-- Character 2 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-200">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./theo.html" class="block w-full h-full">
-                        <img src="./002.png" 
-                             alt="O Líder" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Theo é um líder disciplinado que reprime seus sentimentos para sobreviver e vencer dentro do sistema de Ceres.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">THEO</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Líder frio e calculista</p>
-                </div>
+        <!-- Section Header -->
+        <div class="text-center mb-20 reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+            <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-4 tracking-wider">
+                PERSONAGENS
+            </h2>
 
-                <!-- Character 3 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./dark.html" class="block w-full h-full">
-                        <img src="./003.png" 
-                             alt="O Caos" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Dark é impulsivo e cruel, movido pelo instinto e pelo prazer na violência, sendo o oposto caótico de Theo.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">DARK</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Cruel, impulsivo e caótico</p>
-                </div>
-
-                <!-- Character 4 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./ceres.html" class="block w-full h-full">
-                        <img src="./004.png" 
-                             alt="A Ruptura" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">A garota Ceres é uma presença enigmática e dominante, cujo olhar impõe medo e fascínio, desestabilizando até os mais fortes.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">CERES</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Fria, intensa e inabalável</p>
-                </div>
-
-                <!-- Character 5 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./tycho.html" class="block w-full h-full">
-                        <img src="./005.png" 
-                             alt="A Inocência" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Tycho é o irmão mais novo de Theo, simples e humano, que preserva traços de inocência em um mundo moldado pela dureza de Ceres.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">TYCHO</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Inocente em mundo cruel</p>
-                </div>
-
-                <!-- Character 6 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./daime.html" class="block w-full h-full">
-                        <img src="./006.png" 
-                             alt="O Observador" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Daime é um observador sarcástico e resiliente que, mesmo limitado fisicamente, enxerga o sistema com lucidez e desprezo.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">DAIME</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Deboche como defesa constante</p>
-                </div>
-
-                <!-- Character 7 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./ana.html" class="block w-full h-full">
-                        <img src="./007.png" 
-                             alt="O Desejo" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Ana é intensa e estratégica, usando seu próprio corpo e emoções como moeda para sobreviver e manter poder em Ceres.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">ANA</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Estratégica, intensa e manipuladora</p>
-                </div>
-
-                <!-- Character 8 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./dru.html" class="block w-full h-full">
-                        <img src="./008.png" 
-                             alt="Humanidade" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Dru é astuta e sensível, equilibrando sua habilidade de negociar e sobreviver com um lado emocional profundo que ainda resiste ao sistema.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">DRU</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Astuta, sensível e resiliente.</p>
-                </div>
-
-                <!-- Character 9 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./kat.html" class="block w-full h-full">
-                        <img src="./kat.png" 
-                             alt="Humanidade" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Kat é uma presença enigmática que marca quem a encontra, mais sentida pelo impacto que causa do que explicada por palavras.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">KAT</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Enigmática, intensa, marcante./p>
-                </div>
-
-                <!-- Character 10 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./gene.html" class="block w-full h-full">
-                        <img src="./gene.png" 
-                             alt="Humanidade" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Gene é o inquieto que vive à beira do colapso, sempre tentando se manter inteiro sob o peso do olhar da Mãe.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">GENE</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Inquieto, nervoso, vulnerável.</p>
-                </div>
-                                <!-- Character 13 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./cora.html" class="block w-full h-full">
-                        <img src="./cora.png" 
-                             alt="Pureza" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Cora carrega nos olhos o peso de um mundo que tenta domar, mas nunca consegue quebrar.
-Ela é silêncio afiado — quanto menos diz, mais tudo ao redor treme.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">CORA</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Silêncio, força, abismo, presença.</p>
-                </div>
-                
-                <!-- Character 14 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./tomas.html" class="block w-full h-full">
-                        <img src="./tomas.png" 
-                             alt="Estatua" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Major Tomas, irmão mais velho de Theo e Tycho, não pede respeito — ele impõe, com a calma de quem já decidiu o destino antes da batalha começar.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">MAJOR TOMAS</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Estratégico, eloquente, calculista.</p>
-                </div>
-
-
-                
-                <!-- Character 11 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./ysa.html" class="block w-full h-full">
-                        <img src="./ysa.png" 
-                             alt="Humanidade" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Ysa é a presença silenciosa que carrega mais verdade no olhar do que muitos conseguem dizer em voz alta.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">YSA</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Silenciosa, profunda, enigmática.</p>
-                </div>
-                
-                <!-- Character 12 -->
-                <div class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400">
-                    <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
-                        <a href="./amos.html" class="block w-full h-full">
-                        <img src="./amos.png" 
-                             alt="Humanidade" 
-                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-sm text-gray-300">Amós é a mente estratégica que transforma palavras em armas e decisões em destino.</p>
-                        </div>
-                    </div>
-                    <h3 class="font-cinzel text-xl tracking-wider mb-1">AMÓS</h3>
-                    <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">Estratégico, eloquente, calculista.</p>
-                </div>
-
-
-
-            </div>
+            <p class="text-gray-400 tracking-[0.2em] uppercase text-sm">
+                A Mãe e seus filhos
+            </p>
         </div>
-    </section>
+
+
+        <!-- Characters Grid -->
+        <div class="grid md:grid-cols-4 gap-8">
+
+
+            <!-- Character 1 - Mãe Ceres -->
+            <a href="./maeceres.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./001.png"
+                         alt="Mãe Ceres"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Mãe Ceres é uma líder absoluta que oferece proteção e sobrevivência em troca da completa submissão, tratando seus cidadãos como filhos — e também como propriedade.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    MÃE CERES
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Alimenta, educa e devora
+                </p>
+
+            </a>
+
+
+            <!-- Character 2 - Theo -->
+            <a href="./theo.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-200 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./002.png"
+                         alt="Theo"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Theo é um líder disciplinado que reprime seus sentimentos para sobreviver e vencer dentro do sistema de Ceres.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    THEO
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Líder frio e calculista
+                </p>
+
+            </a>
+
+
+            <!-- Character 3 - Dark -->
+            <a href="./dark.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./003.png"
+                         alt="Dark"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Dark é impulsivo e cruel, movido pelo instinto e pelo prazer na violência, sendo o oposto caótico de Theo.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    DARK
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Cruel, impulsivo e caótico
+                </p>
+
+            </a>
+
+
+            <!-- Character 4 - Ceres -->
+            <a href="./ceres.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./004.png"
+                         alt="Ceres"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            A garota Ceres é uma presença enigmática e dominante, cujo olhar impõe medo e fascínio, desestabilizando até os mais fortes.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    CERES
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Fria, intensa e inabalável
+                </p>
+
+            </a>
+
+
+            <!-- Character 5 - Tycho -->
+            <a href="./tycho.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./005.png"
+                         alt="Tycho"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Tycho é o irmão mais novo de Theo, simples e humano, que preserva traços de inocência em um mundo moldado pela dureza de Ceres.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    TYCHO
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Inocente em mundo cruel
+                </p>
+
+            </a>
+
+
+            <!-- Character 6 - Daime -->
+            <a href="./daime.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./006.png"
+                         alt="Daime"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Daime é um observador sarcástico e resiliente que, mesmo limitado fisicamente, enxerga o sistema com lucidez e desprezo.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    DAIME
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Deboche como defesa constante
+                </p>
+
+            </a>
+
+
+            <!-- Character 7 - Ana -->
+            <a href="./ana.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./007.png"
+                         alt="Ana"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Ana é intensa e estratégica, usando seu próprio corpo e emoções como moeda para sobreviver e manter poder em Ceres.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    ANA
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Estratégica, intensa e manipuladora
+                </p>
+
+            </a>
+
+
+            <!-- Character 8 - Dru -->
+            <a href="./dru.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./008.png"
+                         alt="Dru"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Dru é astuta e sensível, equilibrando sua habilidade de negociar e sobreviver com um lado emocional profundo que ainda resiste ao sistema.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    DRU
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Astuta, sensível e resiliente
+                </p>
+
+            </a>
+
+
+            <!-- Character 9 - Kat -->
+            <a href="./kat.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./kat.png"
+                         alt="Kat"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Kat é uma presença enigmática que marca quem a encontra, mais sentida pelo impacto que causa do que explicada por palavras.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    KAT
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Enigmática, intensa, marcante.
+                </p>
+
+            </a>
+
+
+            <!-- Character 10 - Gene -->
+            <a href="./gene.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./gene.png"
+                         alt="Gene"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Gene é o inquieto que vive à beira do colapso, sempre tentando se manter inteiro sob o peso do olhar da Mãe.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    GENE
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Inquieto, nervoso, vulnerável.
+                </p>
+
+            </a>
+
+
+            <!-- Character 11 - Cora -->
+            <a href="./cora.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./cora.png"
+                         alt="Cora"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Cora carrega nos olhos o peso de um mundo que tenta domar, mas nunca consegue quebrar.
+                            Ela é silêncio afiado — quanto menos diz, mais tudo ao redor treme.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    CORA
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Silêncio, força, abismo, presença.
+                </p>
+
+            </a>
+
+
+            <!-- Character 12 - Major Tomas -->
+            <a href="./tomas.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./tomas.png"
+                         alt="Major Tomas"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Major Tomas, irmão mais velho de Theo e Tycho, não pede respeito — ele impõe, com a calma de quem já decidiu o destino antes da batalha começar.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    MAJOR TOMAS
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Estratégico, eloquente, calculista.
+                </p>
+
+            </a>
+
+
+            <!-- Character 13 - Ysa -->
+            <a href="./ysa.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./ysa.png"
+                         alt="Ysa"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Ysa é a presença silenciosa que carrega mais verdade no olhar do que muitos conseguem dizer em voz alta.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    YSA
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Silenciosa, profunda, enigmática.
+                </p>
+
+            </a>
+
+
+            <!-- Character 14 - Amós -->
+            <a href="./amos.html"
+               class="group reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-400 block">
+
+                <div class="relative overflow-hidden mb-6 aspect-[3/4] card-glow">
+
+                    <img src="./amos.png"
+                         alt="Amós"
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-sm text-gray-300">
+                            Amós é a mente estratégica que transforma palavras em armas e decisões em destino.
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3 class="font-cinzel text-xl tracking-wider mb-1">
+                    AMÓS
+                </h3>
+
+                <p class="text-xs text-gray-500 tracking-[0.2em] uppercase">
+                    Estratégico, eloquente, calculista.
+                </p>
+
+            </a>
+
+
+        </div>
+    </div>
+</section>
+```
+
 
     <div class="section-divider max-w-4xl mx-auto"></div>
 
