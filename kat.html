@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0127GDBN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GT0127GDBN');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÃE CERES - FILHOS DA REVOLUÇÃO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    cinzel: ['Cinzel', 'serif'],
+                    inter: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    atlantis: {
+                        50: '#f0f9ff',
+                        100: '#e0f2fe',
+                        500: '#0ea5e9',
+                        600: '#0284c7',
+                        900: '#0c4a6e',
+                        950: '#082f49',
+                    }
+                },
+                animation: {
+                    'fade-in': 'fadeIn 1.5s ease-out forwards',
+                    'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    'slide-in-left': 'slideInLeft 1s ease-out forwards',
+                    'slide-in-right': 'slideInRight 1s ease-out forwards',
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'float': 'float 6s ease-in-out infinite',
+                    'glow': 'glow 2s ease-in-out infinite alternate',
+                },
+                keyframes: {
+                    fadeIn: {
+                        '0%': { opacity: '0' },
+                        '100%': { opacity: '1' },
+                    },
+                    fadeInUp: {
+                        '0%': { opacity: '0', transform: 'translateY(30px)' },
+                        '100%': { opacity: '1', transform: 'translateY(0)' },
+                    },
+                    slideInLeft: {
+                        '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                        '100%': { opacity: '1', transform: 'translateX(0)' },
+                    },
+                    slideInRight: {
+                        '0%': { opacity: '0', transform: 'translateX(50px)' },
+                        '100%': { opacity: '1', transform: 'translateX(0)' },
+                    },
+                    float: {
+                        '0%, 100%': { transform: 'translateY(0)' },
+                        '50%': { transform: 'translateY(-20px)' },
+                    },
+                    glow: {
+                        '0%': { filter: 'brightness(1)' },
+                        '100%': { filter: 'brightness(1.3)' },
+                    }
+                }
+            }
+        }
+    };
+    </script>
+
+   <style>
+    body {
+        background-color: #050505;
+        color: #e5e5e5;
+        overflow-x: hidden;
+    }
+
+    .text-glow {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+                     0 0 40px rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -4px;
+        left: 50%;
+        background-color: white;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .hero-gradient {
+        background: linear-gradient(
+            to bottom,
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.15) 60%,
+        rgba(5,5,5,0.4) 100%
+        );
+    }
+
+    .section-divider {
+        height: 1px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255,255,255,0.2),
+            transparent
+        );
+    }
+
+    .card-hover {
+        transition: all 0.5s ease;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ===== IMAGE REVEAL ===== */
+    .image-reveal {
+        clip-path: inset(0 100% 0 0);
+        animation: reveal 1.5s ease-out forwards;
+    }
+
+    @keyframes reveal {
+        to {
+            clip-path: inset(0 0 0 0);
+        }
+    }
+
+    /* ===== CINEMATIC SLIDER ===== */
+    .cinematic-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: scale(1.1);
+        filter: blur(18px) brightness(0.6);
+        transition: opacity 1.5s ease, transform 2.8s ease, filter 2.2s ease;
+        will-change: transform, opacity, filter;
+    }
+
+    .cinematic-slide.active {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+    }
+
+    .cinematic-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at center,
+            rgba(0,0,0,0.1) 0%,
+            rgba(0,0,0,0.6) 55%,
+            rgba(0,0,0,0.95) 100%
+        );
+        z-index: 2;
+    }
+
+    @keyframes slowZoom {
+        0% { transform: scale(1.05); }
+        100% { transform: scale(1.15); }
+    }
+
+    /* ===== NOISE FILM GRAIN ===== */
+    .noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* ===== SCROLLBAR ===== */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0a0a0a;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* ===== LOGO GLOW ===== */
+    .logo-glow {
+        animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoGlow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+    }
+    to {
+        filter: drop-shadow(0 0 30px rgba(255,255,255,0.5));
+    }
+}
+
+    .glitch-text::before,
+    .glitch-text::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .glitch-text::before {
+        left: 2px;
+        text-shadow: -1px 0 #ff00c1;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    .glitch-text::after {
+        left: -2px;
+        text-shadow: -1px 0 #00fff9;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim {
+        0% { clip: rect(31px, 9999px, 94px, 0); }
+        20% { clip: rect(58px, 9999px, 14px, 0); }
+        40% { clip: rect(11px, 9999px, 78px, 0); }
+        60% { clip: rect(82px, 9999px, 35px, 0); }
+        80% { clip: rect(43px, 9999px, 91px, 0); }
+        100% { clip: rect(67px, 9999px, 12px, 0); }
+    }
+
+    @keyframes glitch-anim2 {
+        0% { clip: rect(65px, 9999px, 99px, 0); }
+        20% { clip: rect(12px, 9999px, 54px, 0); }
+        40% { clip: rect(88px, 9999px, 22px, 0); }
+        60% { clip: rect(33px, 9999px, 67px, 0); }
+        80% { clip: rect(76px, 9999px, 44px, 0); }
+        100% { clip: rect(21px, 9999px, 83px, 0); }
+    }
+
+    /* ===== BACKGROUND SECTIONS ANIMATED ===== */
+    .section-bg-animated {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section-bg-animated::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        opacity: 0.35 !important;
+        transform: scale(1.1);
+        transition: transform 8s ease, opacity 1s ease;
+        z-index: 0;
+    }
+
+    .section-bg-animated:hover::before {
+        transform: scale(1.15);
+        opacity: 0.22;
+    }
+
+    .section-bg-animated > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Parallax suave via JS */
+    .parallax-bg {
+        will-change: transform;
+    }
+
+    /* Overlay escuro para legibilidade */
+    .section-bg-animated::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(5,5,5,0.25) 0%,
+        rgba(5,5,5,0.10) 50%,
+        rgba(5,5,5,0.25) 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+    /* Glow sutil nos cards sobre background */
+    .card-glow {
+        background: rgba(5, 5, 5, 0.6);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.05);
+        transition: all 0.4s ease;
+    }
+
+    .card-glow:hover {
+        border-color: rgba(255,255,255,0.15);
+        box-shadow: 0 0 40px rgba(255,255,255,0.05);
+    }
+
+    /* Animação de entrada suave do background */
+    @keyframes bgFadeIn {
+        from { opacity: 0; transform: scale(1.2); }
+        to { opacity: 0.15; transform: scale(1.1); }
+    }
+
+    .section-bg-animated.in-view::before {
+        animation: bgFadeIn 1.5s ease-out forwards;
+    }
+</style>
+<style>
+.video-btn {
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.video-btn:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.6);
+}
+
+.video-btn.active {
+    color: white;
+    border-color: white;
+}
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+  #comprar {
+    background: #0a0a0a;
+    padding: 80px 24px;
+    text-align: center;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  #comprar .comprar-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #666;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+
+  #comprar .comprar-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 600;
+    color: #e8e0d0;
+    margin: 0 0 10px;
+    letter-spacing: 0.05em;
+  }
+
+  #comprar .comprar-sub {
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    margin: 0 0 48px;
+  }
+
+  #comprar .plataformas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 680px;
+    margin: 0 auto 48px;
+  }
+
+  #comprar .btn-plataforma {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 28px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.25s, background 0.25s;
+    min-width: 200px;
+    flex: 1;
+    max-width: 280px;
+  }
+
+  #comprar .btn-plataforma:hover {
+    border-color: #c8a96e;
+    background: #161410;
+  }
+
+  #comprar .btn-plataforma:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  #comprar .btn-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #comprar .btn-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  #comprar .btn-texto {
+    text-align: left;
+    flex: 1;
+  }
+
+  #comprar .btn-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: #555;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  #comprar .btn-nome {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8e0d0;
+    display: block;
+  }
+
+  #comprar .btn-arrow {
+    color: #c8a96e;
+    font-size: 18px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  #comprar .comprar-divider {
+    width: 40px;
+    height: 1px;
+    background: #2a2a2a;
+    margin: 0 auto 24px;
+  }
+
+  #comprar .comprar-nota {
+    font-family: 'Crimson Text', serif;
+    font-size: 15px;
+    color: #444;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    #comprar .btn-plataforma {
+      max-width: 100%;
+    }
+  }
+</style>
+
+
+
+    
+</head>
+<body class="font-inter custom-scrollbar">
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 opacity-100 translate-y-0">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+        <div class="relative max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="font-cinzel text-xl tracking-[0.3em] text-white font-bold hover:text-gray-300 transition-colors">
+                    MÃE CERES
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="./index.html#story" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">História</a>
+                    <div class="relative group">
+    <a href="./index.html#characters"
+       class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+        Personagens
+
+        <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 9l-7 7-7-7"/>
+        </svg>
+    </a>
+
+    <!-- Submenu -->
+    <div class="absolute left-0 top-full pt-4 opacity-0 invisible
+                group-hover:opacity-100 group-hover:visible
+                transition-all duration-300">
+
+        <div class="w-52 bg-black/95 backdrop-blur-md
+                    border border-white/10 shadow-2xl">
+
+            <a href="./maeceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Mãe Ceres
+            </a>
+
+            <a href="./theo.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Theo
+            </a>
+
+            <a href="./dark.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dark
+            </a>
+
+            <a href="./ceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ceres
+            </a>
+
+            <a href="./tycho.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Tycho
+            </a>
+
+            <a href="./daime.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Daime
+            </a>
+
+            <a href="./ana.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ana
+            </a>
+
+             <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="./kat.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Kat
+            </a>
+
+            <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="#"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Gene
+            </a>
+
+            <a href="./cora.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                cora
+            </a>
+
+            <a href="./tomas.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Major Tomas
+            </a>
+
+            <a href="./ysa.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ysa
+            </a>
+
+            <a href="./amos.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Amós
+            </a>
+
+        </div>
+    </div>
+</div>
+                    <a href="./index.html#world" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Mundo</a>
+                    <a href="./index.html#factions" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Países</a>
+                    <a href="./index.html#concept-art" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Concepção de Arte</a>
+                    <a href="./index.html#video" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Vídeos</a>
+                    <a href="./index.html#music" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Músicas</a>
+                    <a href="./index.html#comprar" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Comprar</a>
+                    <a href="./index.html#kits" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Kits</a>
+                    <a href="./index.html#updates" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Updates</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+            <div class="px-6 py-4 space-y-4">
+                <a href="./index.html#story" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">História</a>
+                <div class="relative group">
+    <a href="./index.html#characters"
+       class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+        Personagens
+
+        <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 9l-7 7-7-7"/>
+        </svg>
+    </a>
+
+    <!-- Submenu -->
+    <div class="absolute left-0 top-full pt-4 opacity-0 invisible
+                group-hover:opacity-100 group-hover:visible
+                transition-all duration-300">
+
+        <div class="w-52 bg-black/95 backdrop-blur-md
+                    border border-white/10 shadow-2xl">
+
+            <a href="./maeceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Mãe Ceres
+            </a>
+
+            <a href="./theo.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Theo
+            </a>
+
+            <a href="./dark.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dark
+            </a>
+
+            <a href="./ceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ceres
+            </a>
+
+            <a href="./tycho.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Tycho
+            </a>
+
+            <a href="./daime.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Daime
+            </a>
+
+            <a href="./ana.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ana
+            </a>
+
+             <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="./kat.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Kat
+            </a>
+
+            <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="#"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Gene
+            </a>
+
+            <a href="./cora.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                cora
+            </a>
+
+            <a href="./tomas.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Major Tomas
+            </a>
+
+            <a href="./ysa.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ysa
+            </a>
+
+            <a href="./amos.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Amós
+            </a>
+
+        </div>
+    </div>
+</div>
+                <a href="./index.html#world" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Mundo</a>
+                <a href="./index.html#factions" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Países</a>
+                <a href="./index.html#concept-art" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Concepção de Arte</a>
+                <a href="./index.html#video" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Vídeos</a>
+                <a href="./index.html#music" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Músicas</a>
+                <a href="./index.html#comprar" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Comprar</a>
+                <a href="./index.html#kits" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Kits</a>
+                <a href="./index.html#updates" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Updates</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Story Section -->
+    <section id="story" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('./fundo1.png')">
+        <style>#story::before { background-image: var(--bg-image); }</style>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+                    <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-6 tracking-wider">KAT</h2>
+                    <div class="h-px w-24 bg-white/30 mb-8"></div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-lg drop-shadow-lg">
+                        Kat é uma jovem inteligente, sensível e profundamente ligada aos valores de Ceres.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+    Excelente aluna e dona de uma empatia incomum, ela sempre enxergou o mundo através da promessa de um futuro melhor — um futuro construído sobre a ordem, a prosperidade e a certeza de que ninguém deveria voltar a conhecer a fome.
+
+</p>
+
+<p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+    Quando chega a Pietà, Kat encontra aquilo que sempre lhe ensinaram a admirar: um lugar protegido, belo e aparentemente perfeito, onde maternidade, devoção e comunidade se misturam em uma rotina cuidadosamente construída.
+
+</p>
+
+
+<p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+  Mas Pietà também desperta nela sentimentos que não são tão fáceis de organizar.
+
+</p>
+
+<p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+Entre a saudade de Gene, a influência de Mãe Ceres e o encontro com mulheres que carregam histórias muito diferentes das suas, Kat começa a compreender que aquele paraíso tem um preço. E quanto mais próxima se torna de Mãe Ceres, mais importante ela parece ser para o futuro de Ceres.
+
+</p>
+
+<p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+    Kat não é apenas uma das meninas de Pietà.
+
+    </p>
+<p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+Ela pode ser parte do que vem depois.
+</p>
+
+                    </p>
+<a href="#video"
+   onclick="irParaVideo(event)"
+   class="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white hover:text-gray-300 transition-colors group">
+    Vídeo - Kat: Pietà - Cidade das Mães 
+    <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    </svg>
+</a>
+<p> </p>
+<a href="./livro2.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white hover:text-gray-300 transition-colors group">
+    Leia gratuitamente os três capítulos iniciais
+    <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    </svg>
+</a>
+                </div>
+                <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-300 relative">
+                    <div class="aspect-[3/4] overflow-hidden card-glow">
+                        <img src="./kat.png" 
+                             alt="Ancient Atlantis" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-48 h-48 border border-white/20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4x2 mx-auto"></div>
+
+    
+    <!-- Concept Art Section -->
+    <section id="concept-art" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('./fundo4.png')">
+        <style>#concept-art::before { background-image: var(--bg-image); }</style>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+                <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-4 tracking-wider">CONCEPÇÃO DE ARTE</h2>
+                <p class="text-gray-400 tracking-[0.2em] uppercase text-sm">Visão de Mundo</p>
+            </div>
+
+            <div class="relative max-w-6xl mx-auto">
+
+    <!-- Área do carrossel -->
+    <div class="relative overflow-hidden card-glow">
+
+        <div id="concept-carousel"
+             class="flex transition-transform duration-700 ease-in-out">
+
+            <div class="min-w-full">
+                <img src="./kat/001.png"
+                     alt="Concept 1"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/002.png"
+                     alt="Concept 2"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/003.png"
+                     alt="Concept 3"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/004.png"
+                     alt="Concept 4"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/005.png"
+                     alt="Concept 5"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/006.png"
+                     alt="Concept 6"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/007.png"
+                     alt="Concept 7"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/008.png"
+                     alt="Concept 8"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/009.png"
+                     alt="Concept 9"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+            <div class="min-w-full">
+                <img src="./kat/010.png"
+                     alt="Concept 10"
+                     class="w-full aspect-[16/9] object-cover">
+            </div>
+
+        </div>
+
+        <!-- Seta esquerda -->
+        <button
+            id="concept-prev"
+            type="button"
+            aria-label="Imagem anterior"
+            class="absolute left-5 top-1/2 -translate-y-1/2
+                   w-12 h-12 rounded-full
+                   bg-black/60 hover:bg-black/90
+                   text-white text-3xl
+                   flex items-center justify-center
+                   transition-all duration-300
+                   backdrop-blur-sm">
+            ‹
+        </button>
+
+        <!-- Seta direita -->
+        <button
+            id="concept-next"
+            type="button"
+            aria-label="Próxima imagem"
+            class="absolute right-5 top-1/2 -translate-y-1/2
+                   w-12 h-12 rounded-full
+                   bg-black/60 hover:bg-black/90
+                   text-white text-3xl
+                   flex items-center justify-center
+                   transition-all duration-300
+                   backdrop-blur-sm">
+            ›
+        </button>
+
+    </div>
+
+    <!-- Indicadores -->
+    <div id="concept-dots"
+         class="flex justify-center gap-2 mt-6">
+    </div>
+
+</div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+<!-- Video Section -->
+<section id="video" class="section-bg-animated relative py-32 px-6"
+    style="--bg-image: url('/fundo6.png');">
+
+    <style>
+        #video::before { background-image: var(--bg-image); }
+    </style>
+
+    <div class="max-w-5xl mx-auto">
+
+        <!-- Título -->
+        <div class="text-center mb-16">
+            <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-4 tracking-wider">VÍDEOS</h2>
+            <p class="text-gray-400 tracking-[0.2em] uppercase text-sm">Mergulhe nesta Experiência</p>
+        </div>
+
+        <!-- Player -->
+        <div id="video-player"
+            class="relative aspect-video bg-black/50 border border-white/10 overflow-hidden cursor-pointer">
+
+            <!-- Thumbnail -->
+            <img
+                src="https://vumbnail.com/1182199047.jpg"
+                class="thumb w-full h-full object-cover opacity-70"
+            >
+
+            <!-- Play -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="play-btn w-20 h-20 rounded-full border-2 border-white/60 flex items-center justify-center text-white text-2xl">
+                    ▶
+                </div>
+            </div>
+
+            <!-- Vimeo -->
+            <iframe id="player-iframe"
+            src="https://player.vimeo.com/video/1200769434?title=0&byline=0&portrait=0"
+            class="iframe absolute inset-0 w-full h-full hidden"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+            </iframe>
+
+            <!-- Texto -->
+            <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
+                <h3 class="font-cinzel text-2xl tracking-wider"></h3>
+                <p class="text-sm text-gray-400 mt-2">Bem-vindo a Ceres</p>
+            </div>
+        </div>
+    </div>
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+
+    </div>
+</section>
+
+<div class="section-divider max-w-4xl mx-auto"></div>
+
+<!-- Script (já no lugar certo) -->
+<script>
+document.getElementById("video-player").addEventListener("click", function () {
+    const iframe = this.querySelector(".iframe");
+    const thumb = this.querySelector(".thumb");
+    const btn = this.querySelector(".play-btn");
+
+    thumb.style.display = "none";
+    btn.style.display = "none";
+
+    iframe.classList.remove("hidden");
+    iframe.src += "&autoplay=1";
+});
+</script>
+
+<div class="section-divider max-w-4xl mx-auto"></div>
+
+<div class="section-divider max-w-4xl mx-auto"></div>
+
+    
+
+   
+
+<section id="comprar">
+  <p class="comprar-eyebrow">Disponível agora</p>
+  <h2 class="comprar-titulo">Adquira o livro</h2>
+  <p class="comprar-sub">E-book e impresso — escolha sua plataforma</p>
+
+  <div class="plataformas">
+<a class="btn-plataforma"
+   href="./livro2.html"
+   target="_blank" rel="noopener">
+  
+  <div class="btn-icon">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Fundo -->
+      <circle cx="24" cy="24" r="20" fill="#FF9900" opacity="0.15"/>
+      
+      <!-- Livro -->
+      <path d="M15 14C15 12.9 15.9 12 17 12H31C32.1 12 33 12.9 33 14V34C33 35.1 32.1 36 31 36H17C15.9 36 15 35.1 15 34V14Z"
+            stroke="#FF9900"
+            stroke-width="2.5"
+            fill="none"/>
+      
+      <!-- Linha central -->
+      <path d="M24 12V36"
+            stroke="#FF9900"
+            stroke-width="2"/>
+      
+      <!-- Linhas páginas -->
+      <path d="M19 18H22"
+            stroke="#FF9900"
+            stroke-width="2"
+            stroke-linecap="round"/>
+      
+      <path d="M26 18H29"
+            stroke="#FF9900"
+            stroke-width="2"
+            stroke-linecap="round"/>
+      
+      <path d="M19 23H22"
+            stroke="#FF9900"
+            stroke-width="2"
+            stroke-linecap="round"/>
+      
+      <path d="M26 23H29"
+            stroke="#FF9900"
+            stroke-width="2"
+            stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="btn-texto">
+    <span class="btn-label">Online</span>
+    <span class="btn-nome">Veja três capítulos gratuitos</span>
+  </div>
+
+  <span class="btn-arrow">→</span>
+</a>
+    <!-- Amazon -->
+    <a class="btn-plataforma"
+       href="https://www.amazon.com/-/pt/dp/B0FPMW52PL/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&sr=8-1"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z" fill="#FF9900" opacity="0.15"/>
+          <path d="M12 30.5c5.5 3.5 14.5 4.5 22 1" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M31.5 28.5c1-0.5 2.5 0 3 1.5" stroke="#FF9900" stroke-width="2" stroke-linecap="round"/>
+          <text x="24" y="26" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="12" fill="#FF9900">a</text>
+        </svg>
+      </div>
+      <div class="btn-texto">
+        <span class="btn-label">Comprar em</span>
+        <span class="btn-nome">Amazon</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <!-- Google Play Books -->
+    <a class="btn-plataforma"
+       href="https://play.google.com/store/books/details/ale_Roz_Alexandre_Queiroz_Macedo_M%C3%A3e_Ceres?id=q3eREQAAQBAJ&hl=pt_BR"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" fill="#4285F4" opacity="0.12"/>
+          <path d="M14 16l20 8-20 8V16z" fill="#4285F4"/>
+          <path d="M14 16l9 8-9 8V16z" fill="#34A853"/>
+          <path d="M14 16l9 8H14V16z" fill="#FBBC05"/>
+          <path d="M23 24l11 8-11-8z" fill="#EA4335" opacity="0.8"/>
+        </svg>
+      </div>
+      <div class="btn-texto">
+        <span class="btn-label">Comprar em</span>
+        <span class="btn-nome">Google Play</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <!-- Clube de Autores -->
+    <a class="btn-plataforma"
+       href="https://clubedeautores.com.br/livro/mae-ceres"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" fill="#e8e0d0" opacity="0.1"/>
+          <rect x="14" y="12" width="14" height="20" rx="1" stroke="#e8e0d0" stroke-width="2" fill="none"/>
+          <rect x="18" y="14" width="14" height="20" rx="1" stroke="#c8a96e" stroke-width="2" fill="none"/>
+          <line x1="21" y1="20" x2="29" y2="20" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="21" y1="24" x2="27" y2="24" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="btn-texto">
+        <span class="btn-label">Comprar em</span>
+        <span class="btn-nome">Clube de Autores</span>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+  </div>
+
+  <div class="comprar-divider"></div>
+  <p class="comprar-nota">Ficção literária contemporânea &nbsp;·&nbsp; Ale Roz</p>
+</section>
+
+    <!-- Footer -->
+    <footer class="relative py-12 px-6 border-t border-white/10 bg-black/80">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <span class="font-cinzel text-lg tracking-[0.3em] font-bold">MÃE CERES - FILHOS DA REVOLUÇÃO</span>
+            </div>
+
+            <div class="flex space-x-6 mb-4 md:mb-0">
+                <a href="https://x.com/filhosdeceres" class="text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/mae.ceres/" class="text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@M%C3%A3eCeres" class="text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                </a>
+            </div>
+
+            <div class="text-xs text-gray-600 tracking-wider">
+                 2026 MÃE CERES - FILHOS DA REVOLUÇÃO. TODOS DIREITOS RESERVADOS.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== CINEMATIC SLIDER =====
+        const slides = document.querySelectorAll('.cinematic-slide');
+        let current = 0;
+
+        function nextSlide() {
+            if (!slides.length) return;
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }
+        setInterval(nextSlide, 5000);
+
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.remove('opacity-0', '-translate-y-full');
+                navbar.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                navbar.classList.remove('opacity-0', '-translate-y-full');
+                navbar.classList.remove('opacity-100', 'translate-y-0');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-8', '-translate-x-8', 'translate-x-8', 'scale-95');
+                    entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0', 'scale-100');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Intersection Observer para backgrounds animados
+        const bgObserverOptions = {
+            root: null,
+            rootMargin: '-10% 0px',
+            threshold: 0.1
+        };
+
+        const bgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, bgObserverOptions);
+
+        document.querySelectorAll('.section-bg-animated').forEach((el) => {
+            bgObserver.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('#hero img');
+            if (heroImage && scrolled < window.innerHeight) {
+                heroImage.style.transform = `scale(1.1) translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Glitch effect on hover for title
+        const title = document.querySelector('h1');
+        if (title) {
+            title.addEventListener('mouseenter', () => {
+                title.classList.add('glitch-text');
+                title.setAttribute('data-text', title.textContent);
+            });
+            title.addEventListener('mouseleave', () => {
+                title.classList.remove('glitch-text');
+                title.removeAttribute('data-text');
+            });
+        }
+    </script>
+
+
+    <script>
+function trocarVideo(videoId, el) {
+
+    const iframe = document.getElementById("player-iframe");
+    const thumb = document.querySelector("#video-player .thumb");
+
+    // troca vídeo
+    iframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`;
+
+    // mostra player
+    iframe.classList.remove("hidden");
+    thumb.style.display = "none";
+
+    // troca botão ativo
+    document.querySelectorAll(".video-btn").forEach(btn => btn.classList.remove("active"));
+    el.classList.add("active");
+}
+</script>
+    <script>
+    const user = "filhosdeceres";
+    const domain = "gmail.com";
+    const email = user + "@" + domain;
+
+    document.getElementById("email-link").href = "mailto:" + email;
+    document.getElementById("email-text").innerText = email;
+</script>
+<script>
+function irParaVideo(event) {
+    event.preventDefault();
+
+    // 1. ir até a seção
+    document.querySelector("#video").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    // 2. trocar vídeo (leve delay pra garantir que a seção já apareceu)
+    setTimeout(() => {
+        trocarVideo('1200769434');
+
+        // 3. opcional: marcar botão ativo
+        document.querySelectorAll(".video-btn").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        const manifestoBtn = [...document.querySelectorAll(".video-btn")]
+            .find(btn => btn.textContent.includes("Manifesto"));
+
+        if (manifestoBtn) {
+            manifestoBtn.classList.add("active");
+        }
+
+    }, 400);
+}
+</script>
+
+<script>
+let inicio = 26;
+let fim = 3;
+
+const contador = document.getElementById("contador");
+
+let numero = inicio;
+
+const intervalo = setInterval(() => {
+    contador.innerText = numero + " cópias disponíveis!";
+
+    numero--;
+
+    if (numero < fim) {
+        clearInterval(intervalo);
+    }
+}, 10000);
+</script>
+
+<script>
+const imagens = [
+    "./kit1.jpg",
+    "./kit2.jpg",
+    "./kit3.jpg",
+    "./kit4.jpg",
+    "./kit5.jpg"
+];
+
+let atual = 0;
+const img = document.getElementById("kitImage");
+
+function mostrarImagem(){
+    img.src = imagens[atual];
+}
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+    atual = (atual + 1) % imagens.length;
+    mostrarImagem();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+    atual = (atual - 1 + imagens.length) % imagens.length;
+    mostrarImagem();
+});
+</script>
+
+<script>
+    const carousel = document.getElementById("concept-carousel");
+    const prevButton = document.getElementById("concept-prev");
+    const nextButton = document.getElementById("concept-next");
+    const dotsContainer = document.getElementById("concept-dots");
+
+    const totalSlides = carousel.children.length;
+    let currentSlide = 0;
+
+    // Criar indicadores
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.className =
+            "w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all duration-300";
+
+        dot.addEventListener("click", () => {
+            currentSlide = i;
+            updateCarousel();
+        });
+
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function updateCarousel() {
+        carousel.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle(
+                "bg-white",
+                i === currentSlide
+            );
+
+            dots[i].classList.toggle(
+                "bg-white/40",
+                i !== currentSlide
+            );
+        }
+    }
+
+    nextButton.addEventListener("click", () => {
+        currentSlide++;
+
+        if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        }
+
+        updateCarousel();
+    });
+
+    prevButton.addEventListener("click", () => {
+        currentSlide--;
+
+        if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        }
+
+        updateCarousel();
+    });
+
+    updateCarousel();
+</script>
+
+</body>
+</html>
