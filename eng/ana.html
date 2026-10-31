@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0127GDBN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GT0127GDBN');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTHER CERES - CHILDREN OF THE REVOLUTION</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    cinzel: ['Cinzel', 'serif'],
+                    inter: ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    atlantis: {
+                        50: '#f0f9ff',
+                        100: '#e0f2fe',
+                        500: '#0ea5e9',
+                        600: '#0284c7',
+                        900: '#0c4a6e',
+                        950: '#082f49',
+                    }
+                },
+                animation: {
+                    'fade-in': 'fadeIn 1.5s ease-out forwards',
+                    'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    'slide-in-left': 'slideInLeft 1s ease-out forwards',
+                    'slide-in-right': 'slideInRight 1s ease-out forwards',
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'float': 'float 6s ease-in-out infinite',
+                    'glow': 'glow 2s ease-in-out infinite alternate',
+                },
+                keyframes: {
+                    fadeIn: {
+                        '0%': { opacity: '0' },
+                        '100%': { opacity: '1' },
+                    },
+                    fadeInUp: {
+                        '0%': { opacity: '0', transform: 'translateY(30px)' },
+                        '100%': { opacity: '1', transform: 'translateY(0)' },
+                    },
+                    slideInLeft: {
+                        '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                        '100%': { opacity: '1', transform: 'translateX(0)' },
+                    },
+                    slideInRight: {
+                        '0%': { opacity: '0', transform: 'translateX(50px)' },
+                        '100%': { opacity: '1', transform: 'translateX(0)' },
+                    },
+                    float: {
+                        '0%, 100%': { transform: 'translateY(0)' },
+                        '50%': { transform: 'translateY(-20px)' },
+                    },
+                    glow: {
+                        '0%': { filter: 'brightness(1)' },
+                        '100%': { filter: 'brightness(1.3)' },
+                    }
+                }
+            }
+        }
+    };
+    </script>
+
+   <style>
+    body {
+        background-color: #050505;
+        color: #e5e5e5;
+        overflow-x: hidden;
+    }
+
+    .text-glow {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+                     0 0 40px rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -4px;
+        left: 50%;
+        background-color: white;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .hero-gradient {
+        background: linear-gradient(
+            to bottom,
+        rgba(0,0,0,0.05) 0%,
+        rgba(0,0,0,0.15) 60%,
+        rgba(5,5,5,0.4) 100%
+        );
+    }
+
+    .section-divider {
+        height: 1px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255,255,255,0.2),
+            transparent
+        );
+    }
+
+    .card-hover {
+        transition: all 0.5s ease;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ===== IMAGE REVEAL ===== */
+    .image-reveal {
+        clip-path: inset(0 100% 0 0);
+        animation: reveal 1.5s ease-out forwards;
+    }
+
+    @keyframes reveal {
+        to {
+            clip-path: inset(0 0 0 0);
+        }
+    }
+
+    /* ===== CINEMATIC SLIDER ===== */
+    .cinematic-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transform: scale(1.1);
+        filter: blur(18px) brightness(0.6);
+        transition: opacity 1.5s ease, transform 2.8s ease, filter 2.2s ease;
+        will-change: transform, opacity, filter;
+    }
+
+    .cinematic-slide.active {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px) brightness(1);
+    }
+
+    .cinematic-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at center,
+            rgba(0,0,0,0.1) 0%,
+            rgba(0,0,0,0.6) 55%,
+            rgba(0,0,0,0.95) 100%
+        );
+        z-index: 2;
+    }
+
+    @keyframes slowZoom {
+        0% { transform: scale(1.05); }
+        100% { transform: scale(1.15); }
+    }
+
+    /* ===== NOISE FILM GRAIN ===== */
+    .noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* ===== SCROLLBAR ===== */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0a0a0a;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* ===== LOGO GLOW ===== */
+    .logo-glow {
+        animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoGlow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+    }
+    to {
+        filter: drop-shadow(0 0 30px rgba(255,255,255,0.5));
+    }
+}
+
+    .glitch-text::before,
+    .glitch-text::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .glitch-text::before {
+        left: 2px;
+        text-shadow: -1px 0 #ff00c1;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    .glitch-text::after {
+        left: -2px;
+        text-shadow: -1px 0 #00fff9;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim {
+        0% { clip: rect(31px, 9999px, 94px, 0); }
+        20% { clip: rect(58px, 9999px, 14px, 0); }
+        40% { clip: rect(11px, 9999px, 78px, 0); }
+        60% { clip: rect(82px, 9999px, 35px, 0); }
+        80% { clip: rect(43px, 9999px, 91px, 0); }
+        100% { clip: rect(67px, 9999px, 12px, 0); }
+    }
+
+    @keyframes glitch-anim2 {
+        0% { clip: rect(65px, 9999px, 99px, 0); }
+        20% { clip: rect(12px, 9999px, 54px, 0); }
+        40% { clip: rect(88px, 9999px, 22px, 0); }
+        60% { clip: rect(33px, 9999px, 67px, 0); }
+        80% { clip: rect(76px, 9999px, 44px, 0); }
+        100% { clip: rect(21px, 9999px, 83px, 0); }
+    }
+
+    /* ===== BACKGROUND SECTIONS ANIMATED ===== */
+    .section-bg-animated {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section-bg-animated::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        opacity: 0.35 !important;
+        transform: scale(1.1);
+        transition: transform 8s ease, opacity 1s ease;
+        z-index: 0;
+    }
+
+    .section-bg-animated:hover::before {
+        transform: scale(1.15);
+        opacity: 0.22;
+    }
+
+    .section-bg-animated > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .parallax-bg {
+        will-change: transform;
+    }
+
+    .section-bg-animated::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(5,5,5,0.25) 0%,
+        rgba(5,5,5,0.10) 50%,
+        rgba(5,5,5,0.25) 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+    .card-glow {
+        background: rgba(5, 5, 5, 0.6);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,0.05);
+        transition: all 0.4s ease;
+    }
+
+    .card-glow:hover {
+        border-color: rgba(255,255,255,0.15);
+        box-shadow: 0 0 40px rgba(255,255,255,0.05);
+    }
+
+    @keyframes bgFadeIn {
+        from { opacity: 0; transform: scale(1.2); }
+        to { opacity: 0.15; transform: scale(1.1); }
+    }
+
+    .section-bg-animated.in-view::before {
+        animation: bgFadeIn 1.5s ease-out forwards;
+    }
+</style>
+<style>
+.video-btn {
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.video-btn:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.6);
+}
+
+.video-btn.active {
+    color: white;
+    border-color: white;
+}
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+  #comprar {
+    background: #0a0a0a;
+    padding: 80px 24px;
+    text-align: center;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  #comprar .comprar-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #666;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+
+  #comprar .comprar-titulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 600;
+    color: #e8e0d0;
+    margin: 0 0 10px;
+    letter-spacing: 0.05em;
+  }
+
+  #comprar .comprar-sub {
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    margin: 0 0 48px;
+  }
+
+  #comprar .plataformas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 680px;
+    margin: 0 auto 48px;
+  }
+
+  #comprar .btn-plataforma {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 28px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: border-color 0.25s, background 0.25s;
+    min-width: 200px;
+    flex: 1;
+    max-width: 280px;
+  }
+
+  #comprar .btn-plataforma:hover {
+    border-color: #c8a96e;
+    background: #161410;
+  }
+
+  #comprar .btn-plataforma:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  #comprar .btn-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #comprar .btn-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  #comprar .btn-texto {
+    text-align: left;
+    flex: 1;
+  }
+
+  #comprar .btn-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: #555;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  #comprar .btn-nome {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #e8e0d0;
+    display: block;
+  }
+
+  #comprar .btn-arrow {
+    color: #c8a96e;
+    font-size: 18px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  #comprar .comprar-divider {
+    width: 40px;
+    height: 1px;
+    background: #2a2a2a;
+    margin: 0 auto 24px;
+  }
+
+  #comprar .comprar-nota {
+    font-family: 'Crimson Text', serif;
+    font-size: 15px;
+    color: #444;
+    font-style: italic;
+  }
+
+  @media (max-width: 520px) {
+    #comprar .btn-plataforma {
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body class="font-inter custom-scrollbar">
+
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 opacity-100 translate-y-0">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+        <div class="relative max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#hero" class="font-cinzel text-xl tracking-[0.3em] text-white font-bold hover:text-gray-300 transition-colors">
+                    MOTHER CERES
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="./index.html#story" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Story</a>
+                    <div class="relative group">
+    <a href="./index.html#characters"
+       class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+        Characters
+
+        <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 9l-7 7-7-7"/>
+        </svg>
+    </a>
+
+    <!-- Submenu -->
+    <div class="absolute left-0 top-full pt-4 opacity-0 invisible
+                group-hover:opacity-100 group-hover:visible
+                transition-all duration-300">
+
+        <div class="w-52 bg-black/95 backdrop-blur-md
+                    border border-white/10 shadow-2xl">
+
+            <a href="./maeceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Mother Ceres
+            </a>
+
+            <a href="./theo.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Theo
+            </a>
+
+            <a href="./dark.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dark
+            </a>
+
+            <a href="./ceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ceres
+            </a>
+
+            <a href="./tycho.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Tycho
+            </a>
+
+            <a href="./daime.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Daime
+            </a>
+
+            <a href="./ana.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ana
+            </a>
+
+             <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="./Kat.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Kat
+            </a>
+
+            <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="#"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Gene
+            </a>
+
+            <a href="./cora.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Cora
+            </a>
+
+            <a href="./tomas.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Major Tomas
+            </a>
+
+            <a href="./ysa.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ysa
+            </a>
+
+            <a href="./amos.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Amós
+            </a>
+
+        </div>
+    </div>
+</div>
+                    <a href="./index.html#world" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">World</a>
+                    <a href="./index.html#factions" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Nations</a>
+                    <a href="./index.html#concept-art" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Concept Art</a>
+                    <a href="./index.html#video" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Videos</a>
+                    <a href="./index.html#music" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Music</a>
+                    <a href="./index.html#comprar" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Buy</a>
+                    <a href="./index.html#kits" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Kits</a>
+                    <a href="./index.html#updates" class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors">Updates</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+            <div class="px-6 py-4 space-y-4">
+                <a href="./index.html#story" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Story</a>
+                <div class="relative group">
+    <a href="./index.html#characters"
+       class="nav-link text-xs tracking-[0.2em] uppercase text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+        Characters
+
+        <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                  d="M19 9l-7 7-7-7"/>
+        </svg>
+    </a>
+
+    <!-- Submenu -->
+    <div class="absolute left-0 top-full pt-4 opacity-0 invisible
+                group-hover:opacity-100 group-hover:visible
+                transition-all duration-300">
+
+        <div class="w-52 bg-black/95 backdrop-blur-md
+                    border border-white/10 shadow-2xl">
+
+            <a href="./maeceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Mother Ceres
+            </a>
+
+            <a href="./theo.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Theo
+            </a>
+
+            <a href="./dark.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dark
+            </a>
+
+            <a href="./ceres.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ceres
+            </a>
+
+            <a href="./tycho.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Tycho
+            </a>
+
+            <a href="./daime.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Daime
+            </a>
+
+            <a href="./ana.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ana
+            </a>
+
+             <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="./Kat.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Kat
+            </a>
+
+            <a href="./dru.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Dru
+            </a>
+
+            <a href="#"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Gene
+            </a>
+
+            <a href="./cora.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Cora
+            </a>
+
+            <a href="./tomas.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Major Tomas
+            </a>
+
+            <a href="./ysa.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Ysa
+            </a>
+
+            <a href="./amos.html"
+               class="block px-5 py-3 text-xs tracking-[0.15em] uppercase
+                      text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                Amós
+            </a>
+
+        </div>
+    </div>
+</div>
+                <a href="./index.html#world" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">World</a>
+                <a href="./index.html#factions" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Nations</a>
+                <a href="./index.html#concept-art" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Concept Art</a>
+                <a href="./index.html#video" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Videos</a>
+                <a href="./index.html#music" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Music</a>
+                <a href="./index.html#comprar" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Buy</a>
+                <a href="./index.html#kits" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Kits</a>
+                <a href="./index.html#updates" class="block text-sm tracking-[0.2em] uppercase text-gray-300 hover:text-white">Updates</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Story Section -->
+    <section id="story" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('./fundo1.png')">
+        <style>#story::before { background-image: var(--bg-image); }</style>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+                    <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-6 tracking-wider">ANA</h2>
+                    <div class="h-px w-24 bg-white/30 mb-8"></div>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-lg drop-shadow-lg">
+                        Discipline is not a choice, when it is the only thing that still responds when everything else fails.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+                        Ana is a platform diver — a body sculpted by repetition, by precision, by absolute control over every movement. In Ceres, this is not just a sport: it is a function, a guaranteed place within the machinery, a visible proof of utility. And Ana fulfills this function with a discipline that never seems to waver — at least on the outside.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+                        She was Daime's partner before the Flagball accident that left him in a wheelchair. What tore them apart afterward was not a lack of love — it was the cold logic of function. Daime, feeling incapable of "fulfilling the function of a partner" within a system that measures value by productive capacity, dismisses her — not because he stopped feeling something, but because he hates himself too much to stay close to her while being, in his own eyes, incomplete. Ana still likes him. But love, in Ceres, is never enough when the machinery demands something else.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+                        What she finds later, with Dru, is not a substitute for affection — it is pleasure without feeling, traded almost like a commodity: lipstick, perfume, a moment of physical contact without any emotional demands. Ana does not like Dru. The relationship is purely physical, a way to fill a void, without allowing herself vulnerability again. It is telling that the only form of intimacy she allows herself, after losing Daime to the logic of function, is precisely the one that requires no function at all — just exchange, just the body, with no risk of disappointing or being dismissed again.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+                        And then there is the Girl Ceres — rival, mirror, adversary. Both are elite athletes, competing not just for a medal or a position, but for symbolic leadership among thousands of military academies scattered across Ceres. It is a silent, psychological war, fought in the pool and on the platform, where every dive is also a gesture of dominance. Ana is perhaps the only person in history who understands, in her own body, what it means to compete for emotional survival through performance — the same logic that governs the Girl Ceres in her search for belonging, only applied here to another wound: needing to win to prove she is still worth something after having been discarded for no longer serving someone she loved.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 drop-shadow-lg">
+                        Ana is, perhaps, the most silent portrait of how Ceres transforms loss into performance: she does not cry for Daime in public, she does not beg, she does not allow herself visible weakness. She jumps. Again. And again. Each perfect dive is, at the same time, genuine discipline and grief disguised as excellence.
+                    </p>
+
+                    <a href="#video"
+                       onclick="irParaVideo(event)"
+                       class="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white hover:text-gray-300 transition-colors group">
+                        Video - Ana: Champions of Lead
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <p> </p>
+                    <a href="./livro2.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white hover:text-gray-300 transition-colors group">
+                        Read the first three chapters for free
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000 delay-300 relative">
+                    <div class="aspect-[3/4] overflow-hidden card-glow">
+                        <img src="./007.png" 
+                             alt="Ancient Atlantis" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-48 h-48 border border-white/20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Concept Art Section -->
+    <section id="concept-art" class="section-bg-animated relative py-32 px-6" style="--bg-image: url('./fundo4.png')">
+        <style>#concept-art::before { background-image: var(--bg-image); }</style>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal-on-scroll opacity-0 translate-y-8 transition-all duration-1000">
+                <h2 class="font-cinzel text-4xl md:text-5xl font-bold mb-4 tracking-wider">CONCEPT ART</h2>
+                <p class="text-gray-400 tracking-[0.2em] uppercase text-sm">Worldview</p>
+            </div>
+
+            <div class="relative max-w-6xl mx-auto">
+                <!-- Carousel Area -->
+                <div class="relative overflow-hidden card-glow">
+                    <div id="concept-carousel" class="flex transition-transform duration-700 ease-in-out">
+                        <div class="min-w-full">
+                            <!-- Carousel items placeholder -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Scripts -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        function irParaVideo(event) {
+            // Video navigation logic if necessary
+        }
+    </script>
+</body>
+</html>
