@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>Mãe Ceres — Filhos da Revolução</title>
+  <meta name="description" content="Entre no universo de Mãe Ceres — Filhos da Revolução. Escolha seu idioma e descubra o livro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c8a96e;
+      --ivory: #e8e0d0;
+      --muted: #aaa49a;
+      --line: rgba(232,224,208,.22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #050505;
+      color: var(--ivory);
+      font-family: Inter, sans-serif;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 110px 22px 80px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -3%;
+      z-index: -3;
+      background:
+        url("inicial.png") center center / cover no-repeat,
+        url("42.00_03_28_03.png") center / cover no-repeat,
+        #080808;
+      animation: cinematicZoom 24s ease-in-out infinite alternate;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(ellipse at center, rgba(0,0,0,.18) 0%, rgba(0,0,0,.56) 52%, rgba(0,0,0,.9) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.48), transparent 24%, transparent 70%, #050505 100%);
+    }
+    .grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .topbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px clamp(20px, 5vw, 72px);
+      background: linear-gradient(180deg, rgba(0,0,0,.72), transparent);
+      animation: fadeDown 1s .2s both;
+    }
+    .brand {
+      font: 600 13px Cinzel, serif;
+      letter-spacing: .28em;
+      color: rgba(232,224,208,.88);
+      white-space: nowrap;
+    }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(16px, 2.5vw, 36px); }
+    .desktop-nav a, .mobile-nav a {
+      position: relative;
+      color: #c4c0b8;
+      font-size: 10px;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      transition: color .3s ease;
+    }
+    .desktop-nav a::after, .mobile-nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%; bottom: -7px;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transform: translateX(-50%);
+      transition: width .35s ease;
+    }
+    .desktop-nav a:hover, .mobile-nav a:hover { color: #fff; }
+    .desktop-nav a:hover::after, .mobile-nav a:hover::after { width: 100%; }
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      color: white;
+      background: rgba(0,0,0,.35);
+      width: 44px; height: 42px;
+      font-size: 21px;
+      cursor: pointer;
+    }
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 76px; left: 0; right: 0;
+      padding: 22px 28px 28px;
+      background: rgba(5,5,5,.96);
+      border-top: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(14px);
+    }
+    .mobile-nav.open { display: grid; gap: 22px; animation: fadeDown .25s ease both; }
+    .mobile-nav a { width: fit-content; font-size: 11px; }
+    .content {
+      width: min(900px, 100%);
+      text-align: center;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+      animation: riseIn 1.3s .25s both;
+    }
+    .emblem {
+      width: clamp(76px, 10vw, 118px);
+      height: clamp(76px, 10vw, 118px);
+      object-fit: contain;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 0 18px rgba(255,255,255,.2));
+      animation: emblemFloat 6s ease-in-out infinite;
+    }
+    .wordmark {
+      display: block;
+      width: min(560px, 84vw);
+      max-height: 190px;
+      object-fit: contain;
+      margin: 0 auto 14px;
+      filter: drop-shadow(0 0 24px rgba(255,255,255,.25));
+    }
+    .fallback-title {
+      display: none;
+      font: 600 clamp(27px, 5vw, 55px) Cinzel, serif;
+      letter-spacing: .13em;
+      line-height: 1.2;
+      text-shadow: 0 0 25px rgba(255,255,255,.22);
+      margin: 0 auto 12px;
+    }
+    .subtitle {
+      color: rgba(232,224,208,.72);
+      font: italic clamp(14px, 2vw, 18px) Georgia, serif;
+      letter-spacing: .12em;
+      margin: 14px 0 38px;
+    }
+    .separator {
+      width: 64px;
+      height: 1px;
+      margin: 0 auto 34px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .language-label {
+      color: rgba(232,224,208,.58);
+      font-size: 9px;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+      margin: 0 0 18px;
+    }
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .language-btn {
+      min-width: 205px;
+      min-height: 62px;
+      padding: 14px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      border: 1px solid rgba(232,224,208,.36);
+      background: rgba(0,0,0,.36);
+      backdrop-filter: blur(7px);
+      color: var(--ivory);
+      font: 500 11px Cinzel, serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      transition: transform .35s, border-color .35s, background .35s, box-shadow .35s;
+    }
+    .language-btn:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      background: rgba(200,169,110,.1);
+      box-shadow: 0 12px 35px rgba(0,0,0,.4), 0 0 22px rgba(200,169,110,.09);
+    }
+    .flag {
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+      font-size: 24px;
+      line-height: 1;
+      filter: saturate(.85);
+    }
+    .language-btn .arrow { color: var(--gold); font-size: 17px; transition: transform .3s; }
+    .language-btn:hover .arrow { transform: translateX(5px); }
+    .microcopy {
+      margin: 27px 0 0;
+      color: rgba(232,224,208,.4);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .bottom-note {
+      position: absolute;
+      bottom: 24px;
+      left: 20px; right: 20px;
+      text-align: center;
+      color: rgba(232,224,208,.38);
+      font-size: 9px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+    .bottom-note span { color: var(--gold); padding: 0 8px; }
+    @keyframes cinematicZoom { from { transform: scale(1); } to { transform: scale(1.12); } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes emblemFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @media (max-width: 900px) {
+      .desktop-nav { gap: 14px; }
+      .desktop-nav a { font-size: 9px; letter-spacing: .12em; }
+      .brand { letter-spacing: .18em; font-size: 11px; }
+    }
+    @media (max-width: 720px) {
+      .topbar { padding: 19px 20px; }
+      .desktop-nav { display: none; }
+      .menu-toggle { display: block; }
+      .hero { padding-top: 100px; }
+      .subtitle { letter-spacing: .06em; margin-bottom: 30px; }
+      .language-btn { min-width: min(100%, 270px); }
+      .languages { gap: 12px; }
+      .bottom-note { font-size: 8px; letter-spacing: .16em; }
+    }
+    @media (max-width: 380px) {
+      .brand { font-size: 10px; letter-spacing: .12em; }
+      .language-btn { min-width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="false"></div>
+
+  <main class="hero" id="inicio">
+    <header class="topbar">
+    
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+
+      </nav>
+    </header>
+
+    <section class="content" aria-label="Escolha de idioma">
+      <img class="emblem" src="logo-pequeno.png" alt="" onerror="this.style.display='none'">
+      <img class="wordmark" src="logo.png" alt="Mãe Ceres — Filhos da Revolução"
+           onerror="this.style.display='none';document.getElementById('fallbackTitle').style.display='block'">
+      <h1 class="fallback-title" id="fallbackTitle">MÃE CERES<br>FILHOS DA REVOLUÇÃO</h1>
+      <p class="subtitle">A world shaped by survival. A mother who feeds, educates, and devours.</p>
+      <div class="separator"></div>
+      <p class="language-label">Selecione seu idioma / Select your language</p>
+      <div class="languages">
+        <a class="language-btn" href="eng.html" aria-label="Continue in English">
+          <span class="flag" aria-hidden="true">🇬🇧</span>
+          <span>English</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="language-btn" href="pt.html" aria-label="Continuar em Português">
+          <span class="flag" aria-hidden="true">🇧🇷</span>
+          <span>Português</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="microcopy">Mother Ceres · Children of the Revolution</p>
+    </section>
+
+    <div class="bottom-note">Sobrevivência <span>◆</span> Controle <span>◆</span> Liberdade</div>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      toggle.textContent = isOpen ? '×' : '☰';
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+  </script>
+</body>
+</html>
